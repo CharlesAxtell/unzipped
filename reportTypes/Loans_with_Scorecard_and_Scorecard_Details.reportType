@@ -1,0 +1,2118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>LLC_BI__Loan__c</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Report Type for creating Reports related to LAD</description>
+    <join>
+        <join>
+            <outerJoin>false</outerJoin>
+            <relationship>LLC_BI__Scorecard_Details__r</relationship>
+        </join>
+        <outerJoin>false</outerJoin>
+        <relationship>LLC_BI__Scorecards__r</relationship>
+    </join>
+    <label>Loans with Scorecard and Scorecard Details</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan ID</displayNameOverride>
+            <field>Id</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Owner</displayNameOverride>
+            <field>Owner</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Loan Name</displayNameOverride>
+            <field>Name</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Record Type</displayNameOverride>
+            <field>RecordType</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created Date</displayNameOverride>
+            <field>CreatedDate</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created By</displayNameOverride>
+            <field>CreatedBy</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified Date</displayNameOverride>
+            <field>LastModifiedDate</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified By</displayNameOverride>
+            <field>LastModifiedBy</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Activity Date</displayNameOverride>
+            <field>LastActivityDate</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Account Officer</displayNameOverride>
+            <field>LLC_BI__Account_Officer__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Relationship</displayNameOverride>
+            <field>LLC_BI__Account__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Accrued Interest</displayNameOverride>
+            <field>LLC_BI__Accrued_Interest__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Adverse Action Flag</displayNameOverride>
+            <field>LLC_BI__Adverse_Action_Flag__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Amortized Term (Months)</displayNameOverride>
+            <field>LLC_BI__Amortized_Term_Months__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Amount Outstanding</displayNameOverride>
+            <field>LLC_BI__AmountOutstanding__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Amount</displayNameOverride>
+            <field>LLC_BI__Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Application</displayNameOverride>
+            <field>LLC_BI__Application__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Attorney</displayNameOverride>
+            <field>LLC_BI__Attorney__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Authorization Date</displayNameOverride>
+            <field>LLC_BI__Authorization_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Balloon Payment</displayNameOverride>
+            <field>LLC_BI__Balloon_Payment__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Balloon Loan</displayNameOverride>
+            <field>LLC_BI__Balloon__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Billing City</displayNameOverride>
+            <field>LLC_BI__Billing_Address__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Billing State</displayNameOverride>
+            <field>LLC_BI__Billing_State__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Billing Street</displayNameOverride>
+            <field>LLC_BI__Billing_Street__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Billing Zipcode</displayNameOverride>
+            <field>LLC_BI__Billing_Zipcode__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Borrower City</displayNameOverride>
+            <field>LLC_BI__Borrower_City__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Borrower GL Balance</displayNameOverride>
+            <field>LLC_BI__Borrower_GL_Balance__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Borrower State</displayNameOverride>
+            <field>LLC_BI__Borrower_State__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Branch</displayNameOverride>
+            <field>LLC_BI__Branch__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Referral Fee</displayNameOverride>
+            <field>LLC_BI__Broker_Fee__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Call Report Code</displayNameOverride>
+            <field>LLC_BI__Call_Report_Code__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Projected Close Date</displayNameOverride>
+            <field>LLC_BI__CloseDate__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Closing Date Confirmed</displayNameOverride>
+            <field>LLC_BI__Close_Date_Hard__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Close Month</displayNameOverride>
+            <field>LLC_BI__Close_Month__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>% Complete</displayNameOverride>
+            <field>LLC_BI__Complete__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Compliance Officer</displayNameOverride>
+            <field>LLC_BI__Compliance_Officer__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Construction CO Date</displayNameOverride>
+            <field>LLC_BI__Construction_CO_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Credit Approval Date</displayNameOverride>
+            <field>LLC_BI__Credit_Approval_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Credit Memo</displayNameOverride>
+            <field>LLC_BI__Credit_Memo__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Current Interest Rate</displayNameOverride>
+            <field>LLC_BI__Current_Interest_Rate__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Purpose</displayNameOverride>
+            <field>LLC_BI__Description__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>File Number</displayNameOverride>
+            <field>LLC_BI__File_Number__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>% Funded</displayNameOverride>
+            <field>LLC_BI__Funded__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Funding %</displayNameOverride>
+            <field>LLC_BI__Funding__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Funding at Close</displayNameOverride>
+            <field>LLC_BI__Funding_at_Close__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>GTD Balance</displayNameOverride>
+            <field>LLC_BI__GTD_Balance__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>GTD Participated Balance</displayNameOverride>
+            <field>LLC_BI__GTD_Participated_Balance__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>GTD Participated %</displayNameOverride>
+            <field>LLC_BI__GTD_Participated_Percent__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Guarantee Fee Paid</displayNameOverride>
+            <field>LLC_BI__Guarantee_Fee_Paid__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Index</displayNameOverride>
+            <field>LLC_BI__Index__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Initial Advance</displayNameOverride>
+            <field>LLC_BI__Initial_Advance__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Interest Rate</displayNameOverride>
+            <field>LLC_BI__InterestRate__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Interest Only Months</displayNameOverride>
+            <field>LLC_BI__Interest_Only_Months__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Interest Paid To Date</displayNameOverride>
+            <field>LLC_BI__Interest_Paid_To_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Interest Rate Adjustment Frequency</displayNameOverride>
+            <field>LLC_BI__Interest_Rate_Adjustment_Frequency__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is_Paid_Off</displayNameOverride>
+            <field>LLC_BI__Is_Paid_Off__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Pay Date</displayNameOverride>
+            <field>LLC_BI__Last_Pay_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Lead Source</displayNameOverride>
+            <field>LLC_BI__LeadSource__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Lead Source Details</displayNameOverride>
+            <field>LLC_BI__Lead_Detail__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Lead Specifics</displayNameOverride>
+            <field>LLC_BI__Lead_Specifics__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Legal Firm</displayNameOverride>
+            <field>LLC_BI__Legal_Firm__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Number - D</displayNameOverride>
+            <field>LLC_BI__Loan_Number__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Officer</displayNameOverride>
+            <field>LLC_BI__Loan_Officer__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Type Code</displayNameOverride>
+            <field>LLC_BI__Loan_Type_Code__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Lost Detail</displayNameOverride>
+            <field>LLC_BI__Lost_Detail__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Lost To</displayNameOverride>
+            <field>LLC_BI__Lost_To__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Team Alerts</displayNameOverride>
+            <field>LLC_BI__MailerTeamKey__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maturity Date</displayNameOverride>
+            <field>LLC_BI__Maturity_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Monthly Payment</displayNameOverride>
+            <field>LLC_BI__Monthly_Payment__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Near Term Value</displayNameOverride>
+            <field>LLC_BI__Near_Term_Value__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Net Charge Offs</displayNameOverride>
+            <field>LLC_BI__Net_Charge_Offs__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Net Gain on Sale</displayNameOverride>
+            <field>LLC_BI__Net_Gain_on_Sale__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Next Interest Payment Date</displayNameOverride>
+            <field>LLC_BI__Next_Interest_Payment_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Next Payment Due</displayNameOverride>
+            <field>LLC_BI__Next_Payment_Due__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Non-Accrual</displayNameOverride>
+            <field>LLC_BI__Non_Accrual__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Officer Comments</displayNameOverride>
+            <field>LLC_BI__Officer_Comments__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Original Guaranteed Amount</displayNameOverride>
+            <field>LLC_BI__Original_Guaranteed_Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Original Note Amount (Net)</displayNameOverride>
+            <field>LLC_BI__Original_UNGTD_Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Parent Loan</displayNameOverride>
+            <field>LLC_BI__ParentLoan__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Participation Date</displayNameOverride>
+            <field>LLC_BI__Participation_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Partner GTD Left to Fund</displayNameOverride>
+            <field>LLC_BI__Partner_GTD_Left_to_Fund__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Partner Spread Over Base</displayNameOverride>
+            <field>LLC_BI__Partner_Spread_Over_Base__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Partner UNGTD Left to Fund</displayNameOverride>
+            <field>LLC_BI__Partner_UNGTD_Left_to_Fund__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Days Past Due</displayNameOverride>
+            <field>LLC_BI__Past_Due_Days__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Payment Schedule</displayNameOverride>
+            <field>LLC_BI__Payment_Schedule__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Payment Type</displayNameOverride>
+            <field>LLC_BI__Payment_Type__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Payoff Date</displayNameOverride>
+            <field>LLC_BI__Payoff_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Post Closing Items</displayNameOverride>
+            <field>LLC_BI__Post_Closing_Items__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Pre Close Call Date</displayNameOverride>
+            <field>LLC_BI__Pre_Close_Call_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Pricing Basis</displayNameOverride>
+            <field>LLC_BI__Pricing_Basis__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Principal Balance</displayNameOverride>
+            <field>LLC_BI__Principal_Balance__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Probability (%)</displayNameOverride>
+            <field>LLC_BI__Probabilty__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Product Line</displayNameOverride>
+            <field>LLC_BI__Product_Line__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Product Reference</displayNameOverride>
+            <field>LLC_BI__Product_Reference__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Product Type</displayNameOverride>
+            <field>LLC_BI__Product_Type__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Product</displayNameOverride>
+            <field>LLC_BI__Product__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Proposal Accepted</displayNameOverride>
+            <field>LLC_BI__Proposal_Accepted__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rate Ceiling</displayNameOverride>
+            <field>LLC_BI__Rate_Ceiling__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rate Floor</displayNameOverride>
+            <field>LLC_BI__Rate_Floor__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Real Estate</displayNameOverride>
+            <field>LLC_BI__Real_Estate__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Referred To</displayNameOverride>
+            <field>LLC_BI__Referred_To__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Regulator Loan Share</displayNameOverride>
+            <field>LLC_BI__Regulator_Loan_Share__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Renewal Number</displayNameOverride>
+            <field>LLC_BI__Renewal_Number__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Retained Balance</displayNameOverride>
+            <field>LLC_BI__Retained_Balance__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Retained Servicing Spread</displayNameOverride>
+            <field>LLC_BI__Retained_Servicing_Spread__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>% Retained</displayNameOverride>
+            <field>LLC_BI__Retained__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Reviewed by Compliance</displayNameOverride>
+            <field>LLC_BI__Reviewed_by_Compliance__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Reviewed by Loan Ops</displayNameOverride>
+            <field>LLC_BI__Reviewed_by_Loan_Ops__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Risk Grade</displayNameOverride>
+            <field>LLC_BI__Risk_Grade__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>SBA Guarantee Fee</displayNameOverride>
+            <field>LLC_BI__SBA_Guarantee_Fee__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>SBA Guarantee (%)</displayNameOverride>
+            <field>LLC_BI__SBA_Guarantee__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>SBA #</displayNameOverride>
+            <field>LLC_BI__SBA__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Secondary Market Bid Date</displayNameOverride>
+            <field>LLC_BI__Secondary_Market_Bid_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Secondary Market Sold Date</displayNameOverride>
+            <field>LLC_BI__Secondary_Market_Sold_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Sold To</displayNameOverride>
+            <field>LLC_BI__Secondary_Market_Sold_To__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Secondary Markt Sold %</displayNameOverride>
+            <field>LLC_BI__Secondary_Markt__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Secondary Mkt Sold</displayNameOverride>
+            <field>LLC_BI__Secondary_Mkt_Sold__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Secondary Mkt Sold $</displayNameOverride>
+            <field>LLC_BI__Secondary_Mkt_Sold_currency__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Site Visit Date</displayNameOverride>
+            <field>LLC_BI__Site_Visit_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Site Visit Owner</displayNameOverride>
+            <field>LLC_BI__Site_Visit_Owner__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Sold Amount ($)</displayNameOverride>
+            <field>LLC_BI__Sold_Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Spread (%)</displayNameOverride>
+            <field>LLC_BI__Spread__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Stage Progress</displayNameOverride>
+            <field>LLC_BI__Stage_Progress__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Stage</displayNameOverride>
+            <field>LLC_BI__Stage__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Status</displayNameOverride>
+            <field>LLC_BI__Status__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>TDR</displayNameOverride>
+            <field>LLC_BI__TDR__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Term (Months)</displayNameOverride>
+            <field>LLC_BI__Term_Months__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Charge Offs</displayNameOverride>
+            <field>LLC_BI__Total_Charge_Offs__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Disbursed</displayNameOverride>
+            <field>LLC_BI__Total_Disbursed__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Fee Income</displayNameOverride>
+            <field>LLC_BI__Total_Fee_Income__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total GTD Future</displayNameOverride>
+            <field>LLC_BI__Total_Future_Adv__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Recoveries</displayNameOverride>
+            <field>LLC_BI__Total_Recovery__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Undisbursed</displayNameOverride>
+            <field>LLC_BI__Total_Undisbursed__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>UCC Expiration (County)</displayNameOverride>
+            <field>LLC_BI__UCC_County__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>UCC Expiration (State)</displayNameOverride>
+            <field>LLC_BI__UCC_State__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>UNGTD Balance</displayNameOverride>
+            <field>LLC_BI__UNGTD_Balance__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Net Exposure</displayNameOverride>
+            <field>LLC_BI__UNGTD_Exposure__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>UNGTD Participated Balance</displayNameOverride>
+            <field>LLC_BI__UNGTD_Participated_Balance__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>UNGTD Participated %</displayNameOverride>
+            <field>LLC_BI__UNGTD_Participated_Percent__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Underwriting Summary</displayNameOverride>
+            <field>LLC_BI__Underwriting_Summary__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Undisbursed GTD</displayNameOverride>
+            <field>LLC_BI__Undisbursed_GTD__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Undisbursed UNGTD</displayNameOverride>
+            <field>LLC_BI__Undisbursed_UNGTD__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Watchlist Date</displayNameOverride>
+            <field>LLC_BI__Watchlist_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Wire Date</displayNameOverride>
+            <field>LLC_BI__Wire_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>hasRenewal</displayNameOverride>
+            <field>LLC_BI__hasRenewal__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>isClosed</displayNameOverride>
+            <field>LLC_BI__isClosed__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>isConvert</displayNameOverride>
+            <field>LLC_BI__isConvert__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>isRenewal</displayNameOverride>
+            <field>LLC_BI__isRenewal__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Number</displayNameOverride>
+            <field>LLC_BI__lookupKey__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Number Of Renewals</displayNameOverride>
+            <field>LLC_BI__Number_Of_Renewals__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Collateral Value</displayNameOverride>
+            <field>LLC_BI__Total_Real_Estate_Collateral__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Application Date</displayNameOverride>
+            <field>Application_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Funding Date</displayNameOverride>
+            <field>Funding_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Allocated Facility Amount</displayNameOverride>
+            <field>LLC_BI__Allocated_Facility_Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Auto Pay Account</displayNameOverride>
+            <field>LLC_BI__Auto_Pay_Account__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Annual Rate Increase</displayNameOverride>
+            <field>LLC_BI__Annual_Rate_Increase__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Availability from Core</displayNameOverride>
+            <field>LLC_BI__Availability_From_Core__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Balloon Product Structure</displayNameOverride>
+            <field>LLC_BI__Balloon_Product_Structure__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Interest Accrual Method</displayNameOverride>
+            <field>LLC_BI__Interest_Accrual_Method__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Post Closing Review Comments</displayNameOverride>
+            <field>Post_Closing_Review_Comments__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Post Closing Review Completed By</displayNameOverride>
+            <field>Post_Closing_Review_Completed_By__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Post Closing Review Completed Date</displayNameOverride>
+            <field>Post_Closing_Review_Completed_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is No Action Placeholder</displayNameOverride>
+            <field>LLC_BI__Is_No_Action_Placeholder__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Submitted for Approval Date</displayNameOverride>
+            <field>Submitted_for_Approval_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Participation</displayNameOverride>
+            <field>LLC_BI__Is_Participation__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Legal Firm</displayNameOverride>
+            <field>Legal_Firm_Customer__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Syndication</displayNameOverride>
+            <field>LLC_BI__Is_Syndication__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Financed Fee Calculations</displayNameOverride>
+            <field>LLC_BI__Financed_Fee_Calculations__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Net New Funds</displayNameOverride>
+            <field>LLC_BI__Net_New_Funds__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Current LTV</displayNameOverride>
+            <field>LLC_BI__Current_LTV__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Secondary Market Buyer</displayNameOverride>
+            <field>Secondary_Market_Buyer__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Auto Pay</displayNameOverride>
+            <field>LLC_BI__Auto_Pay__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Type</displayNameOverride>
+            <field>LLC_BI__CRA_Type_Code__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Class Code</displayNameOverride>
+            <field>LLC_BI__Class_Code__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Disbursement Description</displayNameOverride>
+            <field>LLC_BI__Disbursement_Description__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>HMDA Reportable</displayNameOverride>
+            <field>LLC_BI__HMDA_Reportable__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Next Interest Rate Change Date</displayNameOverride>
+            <field>LLC_BI__Next_Rate_Change_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Portfolio Number</displayNameOverride>
+            <field>LLC_BI__Portfolio_Number__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Rate Discount</displayNameOverride>
+            <field>LLC_BI__Rate_Discount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Days to Close</displayNameOverride>
+            <field>LLC_BI__Days_to_Close__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Imported</displayNameOverride>
+            <field>LLC_BI__Imported__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Booked</displayNameOverride>
+            <field>LLC_BI__Is_Booked__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is_Modification</displayNameOverride>
+            <field>LLC_BI__Is_Modification__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Modification Number</displayNameOverride>
+            <field>LLC_BI__Modification_Number__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Stage And Status</displayNameOverride>
+            <field>LLC_BI__Stage_And_Status__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Monthly Payments</displayNameOverride>
+            <field>LLC_BI__Total_Monthly_Payments__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Modification Description Count</displayNameOverride>
+            <field>LLC_BI__Modification_Description_Count__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Current Gross Lendable Value</displayNameOverride>
+            <field>LLC_BI__Current_Total_Lendable_Value__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Booked Date</displayNameOverride>
+            <field>LLC_BI__Booked_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Closed Date</displayNameOverride>
+            <field>LLC_BI__Closed_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Closed</displayNameOverride>
+            <field>LLC_BI__Is_Closed__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Copy</displayNameOverride>
+            <field>LLC_BI__Is_Copy__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Class</displayNameOverride>
+            <field>LLC_BI__Loan_Class__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Prepayment Penalty Description</displayNameOverride>
+            <field>LLC_BI__Prepayment_Penalty_Description__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Prepayment Penalty?</displayNameOverride>
+            <field>LLC_BI__Prepayment_Penalty__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Processor</displayNameOverride>
+            <field>LLC_BI__Processor_Name__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Interest (Amt) Paid to Date</displayNameOverride>
+            <field>LLC_BI__Interest_Amount_Paid__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Collateral Aggregate</displayNameOverride>
+            <field>LLC_BI__Loan_Collateral_Aggregate__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Original LTV</displayNameOverride>
+            <field>LLC_BI__Original_LTV__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Original Total Lendable Value</displayNameOverride>
+            <field>LLC_BI__Original_Total_Lendable_Value__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Collateral Pledged</displayNameOverride>
+            <field>LLC_BI__Total_Collateral_Pledged__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Gross Collateral Value</displayNameOverride>
+            <field>LLC_BI__Total_Collateral_Value__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Current Prior Lien Amount</displayNameOverride>
+            <field>LLC_BI__Total_Current_Lien_Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Prior Lien Amount</displayNameOverride>
+            <field>LLC_BI__Total_Prior_Lien_Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Superior Lien Amount</displayNameOverride>
+            <field>LLC_BI__Total_Superior_Lien_Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Amount Available</displayNameOverride>
+            <field>LLC_BI__Amount_Available__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>New Money</displayNameOverride>
+            <field>LLC_BI__Amount_New_Money__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Amount Unused</displayNameOverride>
+            <field>LLC_BI__Amount_Unused__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Action Taken</displayNameOverride>
+            <field>LLC_BI__CRA_Action_Taken__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Affiliate Code</displayNameOverride>
+            <field>LLC_BI__CRA_Affiliate__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Amount (amount in thousands)</displayNameOverride>
+            <field>LLC_BI__CRA_Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Community Development Reportable</displayNameOverride>
+            <field>LLC_BI__CRA_Community_Development_Reportable__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Consortium/Third Party Reportable</displayNameOverride>
+            <field>LLC_BI__CRA_Consortium_Third_Party_Reportable__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Date Action Taken</displayNameOverride>
+            <field>LLC_BI__CRA_Date_Action_Taken__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Identification Number</displayNameOverride>
+            <field>LLC_BI__CRA_Loan_ID__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>CRA Reportable</displayNameOverride>
+            <field>LLC_BI__CRA_Reportable__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Revenue Code</displayNameOverride>
+            <field>LLC_BI__CRA_Revenue__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Consortium/Third Party Reportable</displayNameOverride>
+            <field>LLC_BI__Consortium_Third_Party_Reportable__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Current LTV</displayNameOverride>
+            <field>LLC_BI__Current_LTV_Collateral1__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Default App</displayNameOverride>
+            <field>LLC_BI__Default_App__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Depth</displayNameOverride>
+            <field>LLC_BI__Depth__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Fee Loan Aggregate</displayNameOverride>
+            <field>LLC_BI__Fee_Loan_Aggregate__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Date Action Taken</displayNameOverride>
+            <field>LLC_BI__HMDA_Date_Action_Taken__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Highest</displayNameOverride>
+            <field>LLC_BI__Highest__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Current Takedown</displayNameOverride>
+            <field>LLC_BI__Is_Current_Takedown__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is ELOC</displayNameOverride>
+            <field>LLC_BI__Is_ELOC__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>In Review</displayNameOverride>
+            <field>LLC_BI__Is_In_Review__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Letter of Credit</displayNameOverride>
+            <field>LLC_BI__Is_Letter_of_Credit__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Limit</displayNameOverride>
+            <field>LLC_BI__Is_Limit__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Main</displayNameOverride>
+            <field>LLC_BI__Is_Main__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Multi Level Future</displayNameOverride>
+            <field>LLC_BI__Is_Multi_Level_Future__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Ready to Transmit</displayNameOverride>
+            <field>LLC_BI__Is_Ready_To_Transmit__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Regular Future</displayNameOverride>
+            <field>LLC_BI__Is_Regular_Future__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Review Ready</displayNameOverride>
+            <field>LLC_BI__Is_Review_Ready__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Sublimit</displayNameOverride>
+            <field>LLC_BI__Is_Sublimit__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Term Loan/Current</displayNameOverride>
+            <field>LLC_BI__Is_Term_Loan_Current__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maximum Availability</displayNameOverride>
+            <field>LLC_BI__Maximum_Availability__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Product Package</displayNameOverride>
+            <field>LLC_BI__Product_Package__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Structure Hierarchy</displayNameOverride>
+            <field>LLC_BI__Structure_Hierarchy__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Structure</displayNameOverride>
+            <field>LLC_BI__Structure__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Current Gross Lendable Value</displayNameOverride>
+            <field>LLC_BI__Current_Gross_Lendable_Value_Collateral1__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Gross Collateral Value</displayNameOverride>
+            <field>LLC_BI__Gross_Collateral1_Value__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Prior Lien Amount Collateral1</displayNameOverride>
+            <field>LLC_BI__Total_Prior_Lien_Amount_Collateral1__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Full Product Name</displayNameOverride>
+            <field>Full_Product_Name__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Jumbo</displayNameOverride>
+            <field>LLC_BI__Is_Jumbo__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Participation Type</displayNameOverride>
+            <field>LLC_BI__Participation_Type__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>SNC Type</displayNameOverride>
+            <field>LLC_BI__SNC_Type__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Auto-Decision Status</displayNameOverride>
+            <field>LLC_BI__Auto_Decision_Status__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Calculated Balloon Amount</displayNameOverride>
+            <field>LLC_BI__Calculated_Balloon_Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>First Payment Date</displayNameOverride>
+            <field>LLC_BI__First_Payment_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>ApprovalTriggerField</displayNameOverride>
+            <field>LLC_BI__Is_Approved__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Secured</displayNameOverride>
+            <field>LLC_BI__Is_Secured__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Budget</displayNameOverride>
+            <field>LLC_BI__Budget__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Census Tract (####.## format)</displayNameOverride>
+            <field>LLC_BI__CRA_Census_Tract_Text__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Three Digit County Code</displayNameOverride>
+            <field>LLC_BI__CRA_FIPS_County_Code_Text__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Two Digit State Code</displayNameOverride>
+            <field>LLC_BI__CRA_FIPS_State_Code_Text__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Five Digit MSA/MD Number</displayNameOverride>
+            <field>LLC_BI__CRA_MSA_MD_Number_Text__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Employee Loan</displayNameOverride>
+            <field>LLC_BI__Employee_Loan__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Excluded</displayNameOverride>
+            <field>LLC_BI__Is_Excluded__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Locked</displayNameOverride>
+            <field>LLC_BI__Is_Locked__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Reg O Loan</displayNameOverride>
+            <field>LLC_BI__Reg_O_Loan__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Migration ID</displayNameOverride>
+            <field>Migration_ID__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Integration Source</displayNameOverride>
+            <field>Integration_Source__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Governing Law State</displayNameOverride>
+            <field>LLC_BI__Governing_Law_State__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>HMDA Record Type</displayNameOverride>
+            <field>LLC_BI__HMDA_Record_Type__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Applied Pricing Option</displayNameOverride>
+            <field>LLC_BI__Pricing_Option__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>HVCRE Reportable</displayNameOverride>
+            <field>HVCRE_Reportable__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Reg W Reportable</displayNameOverride>
+            <field>Reg_W_Reportable__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>APR</displayNameOverride>
+            <field>LLC_BI__APR__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Booked Date Time</displayNameOverride>
+            <field>LLC_BI__Booked_DateTime__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Original Declined Loan</displayNameOverride>
+            <field>LLC_BI__Is_Original_Inactive_Loan__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Original Parent Loan</displayNameOverride>
+            <field>LLC_BI__OriginalParentLoan__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Payment Begin Date</displayNameOverride>
+            <field>LLC_BI__Payment_Begin_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Semimonthly Day</displayNameOverride>
+            <field>LLC_BI__Semimonthly_Day__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Superceded Date Time</displayNameOverride>
+            <field>LLC_BI__Superceded_DateTime__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Syndication Type</displayNameOverride>
+            <field>LLC_BI__Syndication_Type__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Facility Amount</displayNameOverride>
+            <field>LLC_BI__Total_Facility_Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Number Of No Action Placeholders</displayNameOverride>
+            <field>LLC_BI__Number_Of_No_Action_Placeholders__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Primary Source of Repayment</displayNameOverride>
+            <field>Primary_Source_of_Repayment__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Secondary Source of Repayment</displayNameOverride>
+            <field>Secondary_Source_of_Repayment__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Tertiary Source of Repayment</displayNameOverride>
+            <field>Tertiary_Source_of_Repayment__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>First Rate Increase</displayNameOverride>
+            <field>LLC_BI__First_Rate_Increase__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Index Value</displayNameOverride>
+            <field>LLC_BI__Index_Value__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Interest Rate Margin Percent</displayNameOverride>
+            <field>LLC_BI__Interest_Rate_Margin_Percent__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Lease</displayNameOverride>
+            <field>LLC_BI__Is_Lease__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is SBA</displayNameOverride>
+            <field>LLC_BI__Is_SBA__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>MAPR</displayNameOverride>
+            <field>LLC_BI__MAPR__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>MLA Status</displayNameOverride>
+            <field>LLC_BI__MLA_Status__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maximum Rate Increase</displayNameOverride>
+            <field>LLC_BI__Maximum_Rate_Increase__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Stair Step Down</displayNameOverride>
+            <field>LLC_BI__Stair_Step_Down__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teaser Rate</displayNameOverride>
+            <field>LLC_BI__Teaser_Rate__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Teaser Term</displayNameOverride>
+            <field>LLC_BI__Teaser_Term__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Approved For Amount</displayNameOverride>
+            <field>LLC_BI__Approved_Loan_Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Debt to Income Ratio</displayNameOverride>
+            <field>LLC_BI__Debt_To_Income_Ratio__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Estimated Property Value</displayNameOverride>
+            <field>LLC_BI__Estimated_Property_Value_2__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Net Worth</displayNameOverride>
+            <field>LLC_BI__Net_Worth__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Postal Code</displayNameOverride>
+            <field>LLC_BI__Postal_Code__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Risk Grade Template</displayNameOverride>
+            <field>LLC_BI__Risk_Grade_Template__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Assets</displayNameOverride>
+            <field>LLC_BI__Total_Assets__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Debts</displayNameOverride>
+            <field>LLC_BI__Total_Debts__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Monthly Debt</displayNameOverride>
+            <field>LLC_BI__Total_Monthly_Debt__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Monthly Expenses</displayNameOverride>
+            <field>LLC_BI__Total_Monthly_Expenses__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Monthly Income</displayNameOverride>
+            <field>LLC_BI__Total_Monthly_Income__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>nCino Loan Number</displayNameOverride>
+            <field>LLC_BI__nCino_Loan_Number__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Assistant</displayNameOverride>
+            <field>cm_Loan_Assistant__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Today&apos;s Date</displayNameOverride>
+            <field>cm_Today_s_Date__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Completed Application</displayNameOverride>
+            <field>cm_Completed_Application__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Method of Doc Prep</displayNameOverride>
+            <field>cm_Method_of_Doc_Prep__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Roll Up Adverse Action</displayNameOverride>
+            <field>cm_Roll_Up_Adverse_Action__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Credit Analyst / Underwriter</displayNameOverride>
+            <field>cm_Credit_Analyst_Underwriter__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Portfolio Manager</displayNameOverride>
+            <field>cm_Portfolio_Manager__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Detail</displayNameOverride>
+            <field>LLC_BI__Loan_Detail__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Closer</displayNameOverride>
+            <field>cm_Closer__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan Ops</displayNameOverride>
+            <field>cm_Loan_Ops__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Exposure Calculation</displayNameOverride>
+            <field>cm_Exposure_Calculation__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Available Amount</displayNameOverride>
+            <field>cm_Available_Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Participation Amount</displayNameOverride>
+            <field>cm_Participation_Amount__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Purpose of Loan</displayNameOverride>
+            <field>cm_Purpose_of_Loan__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Memo Modification Count</displayNameOverride>
+            <field>cm_Memo_Modification_Count__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>cm_Document_Specialist__c</field>
+            <table>LLC_BI__Loan__c</table>
+        </columns>
+        <masterLabel>Loans</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Scorecard ID</displayNameOverride>
+            <field>Id</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Owner</displayNameOverride>
+            <field>Owner</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Score Card Name</displayNameOverride>
+            <field>Name</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created Date</displayNameOverride>
+            <field>CreatedDate</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created By</displayNameOverride>
+            <field>CreatedBy</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified Date</displayNameOverride>
+            <field>LastModifiedDate</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified By</displayNameOverride>
+            <field>LastModifiedBy</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Activity Date</displayNameOverride>
+            <field>LastActivityDate</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Assigned Points</displayNameOverride>
+            <field>LLC_BI__Assigned_Points__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Result Description</displayNameOverride>
+            <field>LLC_BI__Description__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>External Rule Name</displayNameOverride>
+            <field>LLC_BI__External_Rule_Name__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Internal Rule Name</displayNameOverride>
+            <field>LLC_BI__Internal_Rule_Name__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maximum Points</displayNameOverride>
+            <field>LLC_BI__Maximum_Points__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Result</displayNameOverride>
+            <field>LLC_BI__Result__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Snapshot</displayNameOverride>
+            <field>LLC_BI__Snapshot__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Flow URL</displayNameOverride>
+            <field>LLC_BI__Flow_URL__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Flow Version Number</displayNameOverride>
+            <field>LLC_BI__Flow_Version_Number__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Failed Pricing Dimensions</displayNameOverride>
+            <field>LLC_BI__Failed_Pricing_Dimensions__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r</table>
+        </columns>
+        <masterLabel>Scorecards</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Scorecard Detail ID</displayNameOverride>
+            <field>Id</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r.LLC_BI__Scorecard_Details__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Scorecard Detail Name</displayNameOverride>
+            <field>Name</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r.LLC_BI__Scorecard_Details__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created Date</displayNameOverride>
+            <field>CreatedDate</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r.LLC_BI__Scorecard_Details__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created By</displayNameOverride>
+            <field>CreatedBy</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r.LLC_BI__Scorecard_Details__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified Date</displayNameOverride>
+            <field>LastModifiedDate</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r.LLC_BI__Scorecard_Details__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified By</displayNameOverride>
+            <field>LastModifiedBy</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r.LLC_BI__Scorecard_Details__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Activity Date</displayNameOverride>
+            <field>LastActivityDate</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r.LLC_BI__Scorecard_Details__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Assigned Points</displayNameOverride>
+            <field>LLC_BI__Assigned_Points__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r.LLC_BI__Scorecard_Details__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Maximum Points</displayNameOverride>
+            <field>LLC_BI__Maximum_Points__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r.LLC_BI__Scorecard_Details__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Result</displayNameOverride>
+            <field>LLC_BI__Result__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r.LLC_BI__Scorecard_Details__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Value</displayNameOverride>
+            <field>LLC_BI__Value__c</field>
+            <table>LLC_BI__Loan__c.LLC_BI__Scorecards__r.LLC_BI__Scorecard_Details__r</table>
+        </columns>
+        <masterLabel>Scorecard Details</masterLabel>
+    </sections>
+</ReportType>

@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>LLC_BI__Checklist__c</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Report Type for creating reports related to Smart Checklist</description>
+    <join>
+        <join>
+            <outerJoin>true</outerJoin>
+            <relationship>LLC_BI__Document_Placeholders__r</relationship>
+        </join>
+        <outerJoin>true</outerJoin>
+        <relationship>LLC_BI__Requirements__r</relationship>
+    </join>
+    <label>Checklists with Requirement and Doc Placeholder</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Checklist ID</displayNameOverride>
+            <field>Id</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Owner</displayNameOverride>
+            <field>Owner</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Name</displayNameOverride>
+            <field>Name</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created Date</displayNameOverride>
+            <field>CreatedDate</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created By</displayNameOverride>
+            <field>CreatedBy</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified Date</displayNameOverride>
+            <field>LastModifiedDate</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified By</displayNameOverride>
+            <field>LastModifiedBy</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Activity Date</displayNameOverride>
+            <field>LastActivityDate</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Actual Duration Days</displayNameOverride>
+            <field>LLC_BI__Actual_Duration_Days__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Context Id</displayNameOverride>
+            <field>LLC_BI__Context_Id__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Context Type</displayNameOverride>
+            <field>LLC_BI__Context_Type__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Expected Duration Days</displayNameOverride>
+            <field>LLC_BI__Expected_Duration_Days__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Status</displayNameOverride>
+            <field>LLC_BI__Status__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Template</displayNameOverride>
+            <field>LLC_BI__Template__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Account</displayNameOverride>
+            <field>LLC_BI__Account__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Category</displayNameOverride>
+            <field>LLC_BI__Category__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Collateral Pledged</displayNameOverride>
+            <field>LLC_BI__Loan_Collateral2__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Loan</displayNameOverride>
+            <field>LLC_BI__Loan__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Product Package</displayNameOverride>
+            <field>LLC_BI__Product_Package__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Treasury Service</displayNameOverride>
+            <field>LLC_BI__Treasury_Service__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>lookupKey</displayNameOverride>
+            <field>LLC_BI__lookupKey__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Template</displayNameOverride>
+            <field>LLC_BI__Is_Template__c</field>
+            <table>LLC_BI__Checklist__c</table>
+        </columns>
+        <masterLabel>Checklists</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Requirement ID</displayNameOverride>
+            <field>Id</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Owner</displayNameOverride>
+            <field>Owner</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Name</displayNameOverride>
+            <field>Name</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created Date</displayNameOverride>
+            <field>CreatedDate</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created By</displayNameOverride>
+            <field>CreatedBy</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified Date</displayNameOverride>
+            <field>LastModifiedDate</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified By</displayNameOverride>
+            <field>LastModifiedBy</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Activity Date</displayNameOverride>
+            <field>LastActivityDate</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Actual Duration Days</displayNameOverride>
+            <field>LLC_BI__Actual_Duration_Days__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Assignee</displayNameOverride>
+            <field>LLC_BI__Assignee__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Due Date</displayNameOverride>
+            <field>LLC_BI__Due_Date__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Expected Duration Days</displayNameOverride>
+            <field>LLC_BI__Expected_Duration_Days__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Order</displayNameOverride>
+            <field>LLC_BI__Order__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Status</displayNameOverride>
+            <field>LLC_BI__Status__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Template</displayNameOverride>
+            <field>LLC_BI__Template__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Action</displayNameOverride>
+            <field>LLC_BI__Action__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Assigned Party</displayNameOverride>
+            <field>LLC_BI__Assigned_Party__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Description</displayNameOverride>
+            <field>LLC_BI__Description__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Hard Stop</displayNameOverride>
+            <field>LLC_BI__Hard_Stop__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Needed By Context</displayNameOverride>
+            <field>LLC_BI__Needed_By_Context__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Needed By</displayNameOverride>
+            <field>LLC_BI__Needed_By__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Proxy Id</displayNameOverride>
+            <field>LLC_BI__Proxy_Id__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Proxy Type</displayNameOverride>
+            <field>LLC_BI__Proxy_Type__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>lookupKey</displayNameOverride>
+            <field>LLC_BI__lookupKey__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Advanced Criteria</displayNameOverride>
+            <field>LLC_BI__Advanced_Criteria__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Template</displayNameOverride>
+            <field>LLC_BI__Is_Template__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Manually Waived</displayNameOverride>
+            <field>LLC_BI__Manually_Waived__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Context Id</displayNameOverride>
+            <field>LLC_BI__Context_Id__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Category</displayNameOverride>
+            <field>LLC_BI__Category__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Context Data</displayNameOverride>
+            <field>LLC_BI__Context_Data__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Sub-Status Attribute</displayNameOverride>
+            <field>LLC_BI__Sub_Status_Attribute__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Sub-Status</displayNameOverride>
+            <field>LLC_BI__Sub_Status__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Do Not Auto-Generate</displayNameOverride>
+            <field>LLC_BI__Is_Excluded_From_Auto_Generation__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Legal Description</displayNameOverride>
+            <field>LLC_BI__Legal_Description__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Type</displayNameOverride>
+            <field>LLC_BI__Requirement_Type__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Deleted</displayNameOverride>
+            <field>LLC_BI__Is_Deleted__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Days to Satisfy</displayNameOverride>
+            <field>LLC_BI__Days_To_Satisfy__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r</table>
+        </columns>
+        <masterLabel>Requirements</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Document Placeholder ID</displayNameOverride>
+            <field>Id</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Owner</displayNameOverride>
+            <field>Owner</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Document Placeholder Name</displayNameOverride>
+            <field>Name</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created Date</displayNameOverride>
+            <field>CreatedDate</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created By</displayNameOverride>
+            <field>CreatedBy</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified Date</displayNameOverride>
+            <field>LastModifiedDate</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified By</displayNameOverride>
+            <field>LastModifiedBy</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Activity Date</displayNameOverride>
+            <field>LastActivityDate</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>approvalDate</displayNameOverride>
+            <field>LLC_BI__Approval_Date__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Approval Roles</displayNameOverride>
+            <field>LLC_BI__Approval_Roles__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>approvedBy</displayNameOverride>
+            <field>LLC_BI__Approved_By__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Closing Checklist</displayNameOverride>
+            <field>LLC_BI__Closing_Checklist__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Date</displayNameOverride>
+            <field>LLC_BI__Date__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Description</displayNameOverride>
+            <field>LLC_BI__Description__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>DocClass</displayNameOverride>
+            <field>LLC_BI__DocClass__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>DocManager</displayNameOverride>
+            <field>LLC_BI__DocManager__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>DocTab</displayNameOverride>
+            <field>LLC_BI__DocTab__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Category</displayNameOverride>
+            <field>LLC_BI__DocType__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Document Store Index</displayNameOverride>
+            <field>LLC_BI__Document_Store_Index__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Exception Date</displayNameOverride>
+            <field>LLC_BI__Exception_Date__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>External Id</displayNameOverride>
+            <field>LLC_BI__External_Id__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Has File</displayNameOverride>
+            <field>LLC_BI__Has_File__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Imported</displayNameOverride>
+            <field>LLC_BI__Is_Imported__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Staged</displayNameOverride>
+            <field>LLC_BI__Is_Staged__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Is Trash</displayNameOverride>
+            <field>LLC_BI__Is_Trash__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Owner Group</displayNameOverride>
+            <field>LLC_BI__Owner__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Portal Doc Description</displayNameOverride>
+            <field>LLC_BI__Portal_Doc_Description__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Portal Doc Name</displayNameOverride>
+            <field>LLC_BI__Portal_Doc_Name__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Portal Enabled</displayNameOverride>
+            <field>LLC_BI__Portal_Enabled__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Portal Rejection Date</displayNameOverride>
+            <field>LLC_BI__Portal_Rejection_Date__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Portal Rejection Reason</displayNameOverride>
+            <field>LLC_BI__Portal_Rejection_Reason__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>-D Portal Upload Date</displayNameOverride>
+            <field>LLC_BI__Portal_Upload_Date__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>-D Portal Uploaded By</displayNameOverride>
+            <field>LLC_BI__Portal_Uploaded_By__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Priority</displayNameOverride>
+            <field>LLC_BI__Priority__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Review Date</displayNameOverride>
+            <field>LLC_BI__Review_Date__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Review Status</displayNameOverride>
+            <field>LLC_BI__Review_Status__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Reviewed By</displayNameOverride>
+            <field>LLC_BI__Reviewed_By__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>-D Sort</displayNameOverride>
+            <field>LLC_BI__Sort_Order__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Trashed Date</displayNameOverride>
+            <field>LLC_BI__Trashed_Date__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Viewer Roles</displayNameOverride>
+            <field>LLC_BI__Viewer_Roles__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Year</displayNameOverride>
+            <field>LLC_BI__Year__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>lookupKey</displayNameOverride>
+            <field>LLC_BI__lookupKey__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Legal Entity</displayNameOverride>
+            <field>NDOC__Account__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Current Attachment Id</displayNameOverride>
+            <field>NDOC__Attachment_Id__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Collateral Ownership</displayNameOverride>
+            <field>NDOC__Collateral_Ownership__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>comments</displayNameOverride>
+            <field>NDOC__Comments__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created_By_Closing_Checklist_Id</displayNameOverride>
+            <field>NDOC__Created_By_Closing_Checklist_Id__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Deposit_Account_Reporting_Helper</displayNameOverride>
+            <field>NDOC__Deposit__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>File Name</displayNameOverride>
+            <field>NDOC__File_Name__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>fileSize</displayNameOverride>
+            <field>NDOC__File_Size__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>HasBeenWaived</displayNameOverride>
+            <field>NDOC__HasBeenWaived__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>helpText</displayNameOverride>
+            <field>NDOC__Help_Text__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>mimeType</displayNameOverride>
+            <field>NDOC__Mime_Type__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>ownerObjectId</displayNameOverride>
+            <field>NDOC__Owner_Object_Id__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Treasury_Service_Reporting_Helper</displayNameOverride>
+            <field>NDOC__Treasury_Service__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>version</displayNameOverride>
+            <field>NDOC__version__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Collateral Mgmt</displayNameOverride>
+            <field>NDOC__Collateral_Mgmt__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Placeholder Approval Roles</displayNameOverride>
+            <field>NDOC__Placeholder_Approval_Roles__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Placeholder Viewer Roles</displayNameOverride>
+            <field>NDOC__Placeholder_Viewer_Roles__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Portal Rejection Comment</displayNameOverride>
+            <field>NDOC__Portal_Rejection_Comment__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Auto E-Sign</displayNameOverride>
+            <field>LLC_BI__Auto_Esign__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Placeholder Viewer Groups</displayNameOverride>
+            <field>LLC_BI__Placeholder_Viewer_Groups__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Placeholder Viewer Profiles</displayNameOverride>
+            <field>LLC_BI__Placeholder_Viewer_Profiles__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Download As PDF</displayNameOverride>
+            <field>LLC_BI__Download_As_PDF__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Document Source</displayNameOverride>
+            <field>LLC_BI__Document_Source__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>E-Vault Placeholder</displayNameOverride>
+            <field>LLC_BI__E_Vault__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Content Management Key</displayNameOverride>
+            <field>LLC_BI__Content_Management_Key__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Exception Date Time</displayNameOverride>
+            <field>LLC_BI__Exception_Date_Time__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Portal Rejection Date Time</displayNameOverride>
+            <field>LLC_BI__Portal_Rejection_Date_Time__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>-D Due Date Time</displayNameOverride>
+            <field>LLC_BI__Due_Date_Time__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Related Generation Context Id</displayNameOverride>
+            <field>NDOC__Related_Generation_Context_Id__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Due Date</displayNameOverride>
+            <field>LLC_BI__Due_Date__c</field>
+            <table>LLC_BI__Checklist__c.LLC_BI__Requirements__r.LLC_BI__Document_Placeholders__r</table>
+        </columns>
+        <masterLabel>Document Placeholders</masterLabel>
+    </sections>
+</ReportType>
