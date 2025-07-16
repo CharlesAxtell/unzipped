@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>LLC_BI__Loan__c</entityName>
+    <fieldName>LLC_BI__Stage__c</fieldName>
+    <masterLabel>Loan Path</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;ASSIGNED APPROVER/ CREDIT COMMITTEE&lt;/p&gt;&lt;p&gt;•	Review loan request details&lt;/p&gt;&lt;p&gt;•	Issue Approval or Rejection on Product Package and add comments relevant to decision&lt;/p&gt;&lt;p&gt;•	Upload meeting minutes and/or Board Approval Sheet as applicable&amp;quot;&lt;/p&gt;</info>
+        <picklistValueName>Approval / Loan Committee</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;LOAN OPS&lt;/p&gt;&lt;p&gt;•	Review Documents signatures and completeness and mark as &amp;quot;Approved&amp;quot; in DocMan&lt;/p&gt;&lt;p&gt;•	Book to core via manual booking or integration&lt;/p&gt;&lt;p&gt;•	Validate Loan Number, Relationship ID(s) and Collateral Unique ID(s) are keyed into nCino&lt;/p&gt;&lt;p&gt;•	&amp;quot;Mark Stage as Complete&amp;quot; to progress to Booked to complete the process&lt;/p&gt;</info>
+        <picklistValueName>Boarding</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <picklistValueName>Booked</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;LOAN OFFICER&lt;/p&gt;&lt;p&gt;•	Conduct Loan Closing or attend Attorney Closing&lt;/p&gt;&lt;p&gt;LOAN ASSISTANT&lt;/p&gt;&lt;p&gt;•	Verify execution of closing documents received from Attorney/Loan Officer and upload to DocMan&lt;/p&gt;&lt;p&gt;•	Verify Disbursements and engage Wire Dept (outside of nCino)&lt;/p&gt;&lt;p&gt;•	Fund the loan&lt;/p&gt;&lt;p&gt;•	&amp;quot;Mark Stage as Complete&amp;quot; to progress stage&amp;quot;&lt;/p&gt;</info>
+        <picklistValueName>Closing</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;UNDERWRITING MANAGER&lt;/p&gt;&lt;p&gt;•	Assign Credit Analyst/Underwriter to Loan Team&lt;/p&gt;&lt;p&gt;CREDIT ANALYST / UNDERWRITER&lt;/p&gt;&lt;p&gt;•	Review Household and Relationship Connections&lt;/p&gt;&lt;p&gt;•	Review Doc Man on the Loan, Borrower, and Collateral. If documentation is incomplete, send back to Proposal&lt;/p&gt;&lt;p&gt;•	Perform Financial Analysis/Spreads and Risk Rating&lt;/p&gt;&lt;p&gt;•	Complete Appraisal Reviews and Collateral Analysis, as applicable&lt;/p&gt;&lt;p&gt;•	Create Covenants&lt;/p&gt;&lt;p&gt;•	Identify and mitigate Policy Exceptions&lt;/p&gt;&lt;p&gt;•	Complete Compliance Questionnaires&lt;/p&gt;&lt;p&gt;•	On Product Package, assign Approver(s) and add Household Relationship&lt;/p&gt;&lt;p&gt;•	Generate the Product Package Credit Memo, update Narratives and save PDF to Product Package DocMan&lt;/p&gt;&lt;p&gt;•	&amp;quot;Mark Stage as Complete&amp;quot; to progress stage&lt;/p&gt;</info>
+        <picklistValueName>Credit Underwriting</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;LOAN SERVICES MANAGER&lt;/p&gt;&lt;p&gt;•	Assign Loan Ops to Loan Team&lt;/p&gt;&lt;p&gt;LOAN OPS&lt;/p&gt;&lt;p&gt;•	Assign Loan Number and key Loan Number, Relationship ID(s) and Collateral Unique ID(s) into nCino&lt;/p&gt;&lt;p&gt;•	Lock rate and review Rate &amp;amp; Payment Structure, if variable&lt;/p&gt;&lt;p&gt;•	Review all loan information and documentation for completeness&lt;/p&gt;&lt;p&gt;•	Update Method of Doc Prep, Projected Close Date and First Payment Date&lt;/p&gt;&lt;p&gt;•	Prepare Closing Documents via Doc Prep Provider (Internally Prepared)&lt;/p&gt;&lt;p&gt;•	Send completed Closing Package to Loan Assistant&lt;/p&gt;&lt;p&gt;•	&amp;quot;Mark Stage as Complete&amp;quot; to progress stage&lt;/p&gt;</info>
+        <picklistValueName>Doc Prep</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>LLC_BI__Is_Review_Ready__c</fieldNames>
+        <info>&lt;p&gt;LOAN OFFICER&lt;/p&gt;&lt;p&gt;•	Review Loan(s) and associated Product Package for completeness&lt;/p&gt;&lt;p&gt;•	Review the Credit Memo. If any updates are made, upload updated PDF Credit Memo to DocMan&lt;/p&gt;&lt;p&gt;•	When ready, check the &amp;quot;Is Review Ready&amp;quot; on the Loan(s)&lt;/p&gt;&lt;p&gt;•	Submit Product Package for Approval&lt;/p&gt;</info>
+        <picklistValueName>Final Review</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;LOAN OFFICER&lt;/p&gt;&lt;p&gt;•	Generate Commitment Letter via Generate Forms (as applicable), deliver to Customer and upload to DocMan when received&lt;/p&gt;&lt;p&gt;•	Identify Method of Doc Prep, schedule Closing and engage Attorney as applicable&lt;/p&gt;&lt;p&gt;LOAN ASSISTANT&lt;/p&gt;&lt;p&gt;•	Obtain all necessary documents to secure collateral&lt;/p&gt;&lt;p&gt;•	Review/Update Fees&lt;/p&gt;&lt;p&gt;•	Regenerate Credit Memo with approval details and Save to DocMan&lt;/p&gt;&lt;p&gt;•	If HMDA or CRA applicable, Complete/Review Entity/Loan Compliance or CRA Reporting, as applicable&lt;/p&gt;&lt;p&gt;•	&amp;quot;Mark Stage as Complete&amp;quot; to progress stage&lt;/p&gt;</info>
+        <picklistValueName>Processing</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;LOAN OFFICER&lt;/p&gt;&lt;p&gt;•	Generate Term Sheet via Generate Forms in the Loan Magic Wand, if applicable and deliver to Customer&lt;/p&gt;&lt;p&gt;•	Once Terms and Conditions are accepted, update Credit Memo Relationship(s) Narrative&lt;/p&gt;&lt;p&gt;•	Assign Loan Assistant to Loan Team&lt;/p&gt;&lt;p&gt;LOAN ASSISTANT&lt;/p&gt;&lt;p&gt;•	Pull Credit Report via Relationship Run Verifications&lt;/p&gt;&lt;p&gt;•	Order Appraisal and Environmental reports and update Service Management, as applicable&lt;/p&gt;&lt;p&gt;•	Order Flood, as applicable (Loan Number required for Flood integration)&lt;/p&gt;&lt;p&gt;•	Order Property Reports and UCC Search, as applicable&lt;/p&gt;&lt;p&gt;•	Add additional Fees&lt;/p&gt;&lt;p&gt;•	Collect and upload documents to DocMan on the Loan, Borrower, and Collateral&lt;/p&gt;&lt;p&gt;•	&amp;quot;Mark Stage as Complete&amp;quot; to progress stage&lt;/p&gt;</info>
+        <picklistValueName>Proposal</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>LLC_BI__Amount__c</fieldNames>
+        <fieldNames>LLC_BI__CloseDate__c</fieldNames>
+        <info>&lt;p&gt;LOAN OFFICER&lt;/p&gt;&lt;p&gt;•	Assign Loan Officer to Loan Team (if not already added)&lt;/p&gt;&lt;p&gt;•	Update Loan Information, Pricing Required fields and Rate and Payment Structure&lt;/p&gt;&lt;p&gt;•	Add Co-Borrowers/Guarantors to the Borrowing Structure and add Authorized Signers&lt;/p&gt;&lt;p&gt;•	Create Household and Relationship Connections, as applicable&lt;/p&gt;&lt;p&gt;•	Add Collateral with Collateral Ownership, as applicable&lt;/p&gt;&lt;p&gt;•	Add the Origination Fee, as applicable&lt;/p&gt;&lt;p&gt;•	Collect financials and other documents and upload to Relationship, Loan and Collateral DocMan as applicable&lt;/p&gt;&lt;p&gt;•	Generate the Product Package Credit Memo and update Deal Summary and Relationship(s) Narrative as necessary&lt;/p&gt;&lt;p&gt;•	&amp;quot;Mark Stage as Complete&amp;quot; to progress stage&lt;/p&gt;</info>
+        <picklistValueName>Qualification</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Commercial_Loan_Record_Type</recordTypeName>
+</PathAssistant>

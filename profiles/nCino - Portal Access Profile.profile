@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <custom>true</custom>
+    <description>Partner Portal Licenses.</description>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.cm_Credit_Report_Scorecard__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LLC_BI__Fee__c.LLC_BI__Paid_By__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LLC_BI__Product_Package__c.cm_Household__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LLC_BI__Requirement_Status_Link__mdt.LLC_BI__Requirement_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <flowAccesses>
+        <enabled>false</enabled>
+        <flow>nCino__nCino_PDE_Record_Trigger_Covenant_Compliance_Before_Save_V_2_0_0</flow>
+    </flowAccesses>
+    <layoutAssignments>
+        <layout>LLC_BI__Collateral__c-LLC_BI__Real Estate</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LLC_BI__Covenant2__c-LLC_BI__Covenant2 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LLC_BI__Covenant_Compliance2__c-LLC_BI__Covenant Compliance2 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LLC_BI__Requirement_Status_Link__mdt-LLC_BI__Requirement Status Link Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead-LLC_BI__Lead Layout</layout>
+    </layoutAssignments>
+    <pageAccesses>
+        <apexPage>csaConnectionTree</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <userLicense>Customer Portal Manager Custom</userLicense>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ActivitiesAccess</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ApexRestServices</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ChatterOwnGroups</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>DelegatedPortalUserAdmin</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EnableNotifications</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>PortalSuperUser</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SelectFilesFromSalesforce</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ShareFilesWithNetworks</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ShowCompanyNameAsUserBadge</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>UseWebLink</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewContent</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewRoles</name>
+    </userPermissions>
+</Profile>

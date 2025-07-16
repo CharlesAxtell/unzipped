@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>CHILD_NAME</field>
+    </columns>
+    <description>My Loan Documents that are not In File, Reviewed, or Approved Status and the Loan Stage = Booked</description>
+    <filter>
+        <criteriaItems>
+            <column>LLC_BI__LLC_LoanDocument__c.LLC_BI__reviewStatus__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Reviewed,Approved,In-File</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>LLC_BI__Loan__c.LLC_BI__Stage__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Booked</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>LLC_BI__Loan__c.LLC_BI__Loan_Officer__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>$USER</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>New Loans with Loan Documents Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$LLC_BI__Loan__c$LLC_BI__LLC_LoanDocument__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CHILD_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>
