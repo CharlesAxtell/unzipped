@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Email_Alert_for_Booked_Loan</name>
+        <label>Email Alert for Booked Loan</label>
+        <locationX>468</locationX>
+        <locationY>1055</locationY>
+        <actionName>LLC_BI__Loan__c.Loan_Booked</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Loan_came_from_Opportunity</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>LLC_BI__Loan__c.Loan_Booked</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>HMDA_Entity_Compliance_Automation</name>
+        <label>HMDA Entity Compliance Automation</label>
+        <locationX>600</locationX>
+        <locationY>647</locationY>
+        <actionName>LLC_BI__HmdaEntityComplianceInvoker</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Run_HMDA_Loan_Compliance_Automation</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>loanId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>LLC_BI__HmdaEntityComplianceInvoker</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Run_HMDA_Loan_Compliance_Automation</name>
+        <label>Run HMDA Loan Compliance Automation</label>
+        <locationX>600</locationX>
+        <locationY>755</locationY>
+        <actionName>LLC_BI__HmdaLoanComplianceInvoker</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Loan_Stage_Automation</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>loanId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>LLC_BI__HmdaLoanComplianceInvoker</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <assignments>
+        <name>Sync_Opportunity_Stage_with_Loan</name>
+        <label>Sync Opportunity Stage with Loan</label>
+        <locationX>50</locationX>
+        <locationY>1571</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Opp.StageName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.LLC_BI__Stage__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Opportunity</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Memo_Status_to_Approved</name>
+        <label>Update Memo Status to Approved</label>
+        <locationX>732</locationX>
+        <locationY>1055</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Memos.LLC_BI__Approval_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Approved</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Memos_on_Loan</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Opportunity_Stage_to_Closed_Lost</name>
+        <label>Update Opportunity Stage to Closed Lost</label>
+        <locationX>578</locationX>
+        <locationY>1571</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Opp.StageName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed Lost</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Opportunity</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Opportunity_Stage_to_Closed_Won</name>
+        <label>Update Opportunity Stage to Closed Won</label>
+        <locationX>314</locationX>
+        <locationY>1571</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Opp.StageName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Closed Won</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Opportunity</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Loan_came_from_Opportunity</name>
+        <label>Loan came from Opportunity?</label>
+        <locationX>732</locationX>
+        <locationY>1355</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Came_From_Opp</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Opp</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Sync_Opportunity_Stage_with_Loan_Stage</targetReference>
+            </connector>
+            <label>Yes - Came From Opp</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Loan_Stage_Automation</name>
+        <label>Loan Stage Automation</label>
+        <locationX>732</locationX>
+        <locationY>947</locationY>
+        <defaultConnector>
+            <targetReference>Loan_came_from_Opportunity</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Stage_is_Booked</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Booked</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Email_Alert_for_Booked_Loan</targetReference>
+            </connector>
+            <label>Stage is Booked</label>
+        </rules>
+        <rules>
+            <name>Stage_is_Processing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Processing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.cm_Memo_Modification_Count__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.LLC_BI__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approval / Loan Committee</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Memo_Status_to_Approved</targetReference>
+            </connector>
+            <label>Stage is Processing</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Needs_HMDA_Automation</name>
+        <label>Needs HMDA Automation?</label>
+        <locationX>732</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Loan_Stage_Automation</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Needs_HMDA_Automation</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>frmB_Run_HMDA_Automation</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>HMDA_Entity_Compliance_Automation</targetReference>
+            </connector>
+            <label>Yes - Needs HMDA Automation</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Sync_Opportunity_Stage_with_Loan_Stage</name>
+        <label>Sync Opportunity Stage with Loan Stage</label>
+        <locationX>446</locationX>
+        <locationY>1463</locationY>
+        <defaultConnector>
+            <targetReference>Update_Opportunity</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Loan_Stage_is_NOT_Booked</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Stage__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Booked</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Stage__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Complete</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Sync_Opportunity_Stage_with_Loan</targetReference>
+            </connector>
+            <label>Loan Stage is NOT Booked</label>
+        </rules>
+        <rules>
+            <name>Loan_Stage_is_Booked</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Booked</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity_Stage_to_Closed_Won</targetReference>
+            </connector>
+            <label>Loan Stage is Booked</label>
+        </rules>
+        <rules>
+            <name>Loan_is_Lost</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Stage__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Complete</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Withdrawn</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Declined</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity_Stage_to_Closed_Lost</targetReference>
+            </connector>
+            <label>Loan is Lost</label>
+        </rules>
+    </decisions>
+    <description>Applies HMDA Automation. On Loan Stage Change: Booked stage sends email alert; Processing Stage updates any Under Review Memo to Approved. If Loan came from Opportunity, keeps Oppturnity Stage in sync with Loan stage.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>frmB_Run_HMDA_Automation</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!$Record.LLC_BI__HMDA_Reportable__c}  = True, ISCHANGED({!$Record.LLC_BI__Stage__c}),
+OR(
+AND(ISPICKVAL({!$Record.LLC_BI__Stage__c}, &apos;Qualification&apos;),ISPICKVAL({!$Record.LLC_BI__Status__c}, &apos;Open&apos;)),
+AND(ISPICKVAL({!$Record.LLC_BI__Stage__c}, &apos;Credit Underwriting&apos;),ISPICKVAL({!$Record.LLC_BI__Status__c}, &apos;Open&apos;)),
+AND(ISPICKVAL({!$Record.LLC_BI__Stage__c}, &apos;Doc Prep&apos;), ISPICKVAL({!$Record.LLC_BI__Status__c}, &apos;Open&apos;)),
+AND(ISPICKVAL({!$Record.LLC_BI__Stage__c}, &apos;Booked&apos;), ISPICKVAL({!$Record.LLC_BI__Status__c}, &apos;Open&apos;)),
+AND(ISPICKVAL({!$Record.LLC_BI__Stage__c}, &apos;Complete&apos;), ISPICKVAL({!$Record.LLC_BI__Status__c}, &apos;Withdrawn&apos;)),
+AND(ISPICKVAL({!$Record.LLC_BI__Stage__c}, &apos;Complete&apos;), ISPICKVAL({!$Record.LLC_BI__Status__c}, &apos;Declined&apos;))
+)
+)</expression>
+    </formulas>
+    <interviewLabel>nCino Commercial - Record Trigger: Loan After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>nCino Commercial - Record Trigger: Loan After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Memos</name>
+        <label>Get Memos</label>
+        <locationX>732</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Needs_HMDA_Automation</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>LLC_BI__Loan__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>LLC_BI__Approval_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Under Review</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>LLC_BI__Credit_Memo_Modifcation__c</object>
+        <sortField>CreatedDate</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Opp</name>
+        <label>Get Opp</label>
+        <locationX>732</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Memos</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>LLC_BI__Loan__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Memos_on_Loan</name>
+        <label>Update Memos on Loan</label>
+        <locationX>732</locationX>
+        <locationY>1163</locationY>
+        <connector>
+            <targetReference>Loan_came_from_Opportunity</targetReference>
+        </connector>
+        <inputReference>Get_Memos</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Opportunity</name>
+        <label>Update Opportunity</label>
+        <locationX>446</locationX>
+        <locationY>1763</locationY>
+        <inputReference>Get_Opp</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>606</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Opp</targetReference>
+        </connector>
+        <filterFormula>AND({!$Permission.LLC_BI__Exclude_Flow} = FALSE,
+{!$Record.LLC_BI__Product_Reference__r.LLC_BI__Product_Type__r.LLC_BI__Product_Line__r.Name} = &apos;Commercial&apos;)</filterFormula>
+        <object>LLC_BI__Loan__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

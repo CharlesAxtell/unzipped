@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <assignments>
+        <name>Clear_Out_Credit_Analyst_Underwriter_Field</name>
+        <label>Clear Out Credit Analyst / Underwriter Field</label>
+        <locationX>578</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.cm_Credit_Analyst_Underwriter__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varT_NullValue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Related_Loan</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Clear_Out_Loan_Assistant_Field</name>
+        <label>Clear Out Loan Assistant Field</label>
+        <locationX>314</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.cm_Loan_Assistant__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varT_NullValue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Related_Loan</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Clear_Out_Loan_Officer_Field</name>
+        <label>Clear Out Loan Officer Field</label>
+        <locationX>50</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__Loan_Officer__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varT_NullValue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Related_Loan</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Clear_Out_Loan_Ops_Field</name>
+        <label>Clear Out Loan Ops Field</label>
+        <locationX>1106</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.cm_Loan_Ops__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varT_NullValue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Related_Loan</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Clear_Out_Portfolio_Manager_Field</name>
+        <label>Clear Out Portfolio Manager Field</label>
+        <locationX>842</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.cm_Portfolio_Manager__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varT_NullValue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Related_Loan</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Null_Out_Closer_Field</name>
+        <label>Null Out Closer Field</label>
+        <locationX>1370</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.cm_Closer__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varT_NullValue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Related_Loan</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Logic to determine which Loan Team Member lookup up field should be cleared out, based off the Role Name</description>
+        <name>Null_Out_LTM_Lookups_Fields</name>
+        <label>Null Out LTM Lookups Fields?</label>
+        <locationX>842</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Update_Related_Loan</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Null_Out_Loan_Officer_Field</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Assigned_Role__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Loan Officer</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Clear_Out_Loan_Officer_Field</targetReference>
+            </connector>
+            <label>Null Out Loan Officer Field</label>
+        </rules>
+        <rules>
+            <name>Null_Out_Loan_Assistant</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Assigned_Role__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Loan Assistant</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Clear_Out_Loan_Assistant_Field</targetReference>
+            </connector>
+            <label>Null Out Loan Assistant</label>
+        </rules>
+        <rules>
+            <name>Null_Out_Credit_Analyst_Underwriter</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Assigned_Role__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Credit Analyst / Underwriter</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Clear_Out_Credit_Analyst_Underwriter_Field</targetReference>
+            </connector>
+            <label>Null Out Credit Analyst / Underwriter</label>
+        </rules>
+        <rules>
+            <name>Null_Out_Portfolio_Manager</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Assigned_Role__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Portfolio Manager</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Clear_Out_Portfolio_Manager_Field</targetReference>
+            </connector>
+            <label>Null Out Portfolio Manager</label>
+        </rules>
+        <rules>
+            <name>Null_Out_Loan_Ops</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Assigned_Role__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Loan Ops</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Clear_Out_Loan_Ops_Field</targetReference>
+            </connector>
+            <label>Null Out Loan Ops</label>
+        </rules>
+        <rules>
+            <name>Null_Out_Closer</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Assigned_Role__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closer</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Null_Out_Closer_Field</targetReference>
+            </connector>
+            <label>Null Out Closer</label>
+        </rules>
+    </decisions>
+    <description>Clears out the Loan Lookup Fields for each Loan Team Member being removed</description>
+    <environments>Default</environments>
+    <interviewLabel>nCino Baseline - Record Trigger: Loan Team Before Delete {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>nCino Baseline - Record Trigger: Loan Team Before Delete</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get the Loan Related to the Loan Team Member being deleted</description>
+        <name>Get_Loan</name>
+        <label>Get Loan</label>
+        <locationX>842</locationX>
+        <locationY>287</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Null_Out_LTM_Lookups_Fields</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.LLC_BI__Loan__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>LLC_BI__Loan__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the Loan related to the Loan Team Member being removed</description>
+        <name>Update_Related_Loan</name>
+        <label>Update Related Loan</label>
+        <locationX>842</locationX>
+        <locationY>695</locationY>
+        <inputReference>Get_Loan</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>716</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Loan</targetReference>
+        </connector>
+        <filterFormula>{!$Permission.LLC_BI__Exclude_Flow} = FALSE</filterFormula>
+        <object>LLC_BI__LoanTeam__c</object>
+        <recordTriggerType>Delete</recordTriggerType>
+        <triggerType>RecordBeforeDelete</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varT_NullValue</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue></stringValue>
+        </value>
+    </variables>
+</Flow>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <assignments>
+        <name>Update_Loan_Risk_Grade</name>
+        <label>Update Loan Risk Grade</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__Risk_Grade__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forT_RiskGradeValue</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Annual_Review</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Final_Risk_Grade_Populated</name>
+        <label>Final Risk Grade Populated?</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Update_Annual_Review</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Final_Risk_Grade_Populated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Final_Risk_Grade__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Loan_Risk_Grade</targetReference>
+            </connector>
+            <label>Yes - Final Risk Grade Populated</label>
+        </rules>
+    </decisions>
+    <description>Updates Loan Risk Rating and Status on Risk Rating</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>forT_RiskGradeValue</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.LLC_BI__Final_Risk_Grade__c}, 
+1, &quot;1&quot;, 
+2, &quot;2&quot;,
+3, &quot;3&quot;,
+4, &quot;4&quot;,
+5, &quot;5&quot;,
+6, &quot;6&quot;,
+7, &quot;7&quot;,
+8, &quot;8&quot;,
+9, &quot;9&quot;,
+&apos;N/A&apos;)</expression>
+    </formulas>
+    <interviewLabel>nCino Commercial - Record Trigger: Risk Rating (Annual) Review After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>nCino Commercial - Record Trigger: Risk Rating (Annual) Review After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Loan</name>
+        <label>Get Loan</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Final_Risk_Grade_Populated</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.LLC_BI__Loan__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>LLC_BI__Loan__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Annual_Review</name>
+        <label>Update Annual Review</label>
+        <locationX>182</locationX>
+        <locationY>731</locationY>
+        <connector>
+            <targetReference>Update_Loan</targetReference>
+        </connector>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Loan</name>
+        <label>Update Loan</label>
+        <locationX>182</locationX>
+        <locationY>839</locationY>
+        <inputReference>Get_Loan</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Loan</targetReference>
+        </connector>
+        <filterFormula>AND({!$Permission.LLC_BI__Exclude_Flow} = FALSE,
+{!$Record.LLC_BI__Loan__r.LLC_BI__Product_Reference__r.LLC_BI__Product_Type__r.LLC_BI__Product_Line__r.Name} = &apos;Commercial&apos;
+)</filterFormula>
+        <object>LLC_BI__Annual_Review__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

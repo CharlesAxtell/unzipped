@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <assignments>
+        <name>Assign_Account_Review_in_Progress_Record_Type</name>
+        <label>Assign &quot;Account Review in Progress&quot; Record Type</label>
+        <locationX>50</locationX>
+        <locationY>839</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Account_Review_in_Progress_Record_Type.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Review_on_Create</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Review_Loan_Officer</name>
+        <label>Update Review Loan Officer</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.cm_Loan_Officer__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.LLC_BI__Account__r.OwnerId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Determine_Path</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Determine_Path</name>
+        <label>Determine Path</label>
+        <locationX>182</locationX>
+        <locationY>623</locationY>
+        <defaultConnector>
+            <targetReference>Update_Review_on_Edit</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Adhoc</defaultConnectorLabel>
+        <rules>
+            <name>On_Create</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Is_New</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Account_Review_in_Progress_Record_Type</targetReference>
+            </connector>
+            <label>On Create</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Relationship_is_Not_Null_or_Is_Changed</name>
+        <label>Relationship is Not Null or Is Changed</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Determine_Path</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Relationship_is_Not_Null_or_Is_Changed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Account__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Account__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Review_Loan_Officer</targetReference>
+            </connector>
+            <label>Yes - Relationship is Not Null or Is Changed</label>
+        </rules>
+    </decisions>
+    <description>Updates Record Type to &apos;Account Review in Progress&apos; on Create. Populates the Loan Officer lookup field on the Review object with the associated Relationship owner.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Is_New</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>nCino Commercial - Record Trigger: Review After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>nCino Commercial - Record Trigger: Review After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Account_Review_in_Progress_Record_Type</name>
+        <label>Get &quot;Account Review in Progress&quot; Record Type</label>
+        <locationX>50</locationX>
+        <locationY>731</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Account_Review_in_Progress_Record_Type</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Account Review In Progress</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Review_on_Create</name>
+        <label>Update Review on Create</label>
+        <locationX>50</locationX>
+        <locationY>947</locationY>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Review_on_Edit</name>
+        <label>Update Review on Edit</label>
+        <locationX>314</locationX>
+        <locationY>731</locationY>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Relationship_is_Not_Null_or_Is_Changed</targetReference>
+        </connector>
+        <filterFormula>{!$Permission.LLC_BI__Exclude_Flow} = FALSE</filterFormula>
+        <object>LLC_BI__Review__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

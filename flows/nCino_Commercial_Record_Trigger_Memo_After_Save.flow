@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <assignments>
+        <name>Update_Related_Loan</name>
+        <label>Update Related Loan</label>
+        <locationX>50</locationX>
+        <locationY>839</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__Credit_Approval_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>NullDate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__Stage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Credit Underwriting</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Loan</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Is_New</name>
+        <label>Is New?</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Memo_Type</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Is_New</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Memo_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Change Memo</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Loan_Officer_on_Change_Memo</targetReference>
+            </connector>
+            <label>Yes - Is New</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Memo_Type</name>
+        <label>Memo Type?</label>
+        <locationX>182</locationX>
+        <locationY>731</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Change_Memo</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Memo_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Change Memo</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.cm_ChangeMemoFlag__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.cm_Approval_Required_Formula__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.cm_ChangeMemoFlag__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.cm_ChangeMemoFlag__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Related_Loan</targetReference>
+            </connector>
+            <label>Is Change Memo</label>
+        </rules>
+    </decisions>
+    <description>Populates the Loan Officer lookup field on memo and then initiates additional automation based on memo type. For Change Memo requiring an approval, approval process will update a field triggering this flow which will move the loan back to Underwriting and NULL out the Credit Approval Date</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>IsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>NullDate</name>
+        <dataType>Date</dataType>
+        <expression>DATEVALUE(&quot;&quot;)</expression>
+    </formulas>
+    <interviewLabel>nCino Commercial - Record Trigger: Memo After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>nCino Commercial - Record Trigger: Memo After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Loan</name>
+        <label>Get Loan</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_New</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.LLC_BI__Loan__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>LLC_BI__Loan__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Loan</name>
+        <label>Update Loan</label>
+        <locationX>50</locationX>
+        <locationY>947</locationY>
+        <inputReference>Get_Loan</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updates the Loan Officer Field on Memo based off value on Loan Loan Officer value</description>
+        <name>Update_Loan_Officer_on_Change_Memo</name>
+        <label>Update Loan Officer on Change Memo</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <connector>
+            <targetReference>Memo_Type</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>cm_Loan_Officer__c</field>
+            <value>
+                <elementReference>Get_Loan.LLC_BI__Loan_Officer__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Loan</targetReference>
+        </connector>
+        <filterFormula>AND({!$Permission.LLC_BI__Exclude_Flow} = FALSE,
+{!$Record.LLC_BI__Loan__r.LLC_BI__Product_Reference__r.LLC_BI__Product_Type__r.LLC_BI__Product_Line__r.Name} = &apos;Commercial&apos;)</filterFormula>
+        <object>LLC_BI__Credit_Memo_Modifcation__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

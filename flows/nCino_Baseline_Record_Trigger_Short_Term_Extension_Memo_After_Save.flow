@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Short_Term_Extension_Approval</name>
+        <label>Short Term Extension Approval</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <actionName>submit</actionName>
+        <actionType>submit</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>objectId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>processDefinitionNameOrId</name>
+            <value>
+                <stringValue>MAP100_Short_Term_Extension</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>submit</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>56.0</apiVersion>
+    <decisions>
+        <name>Memo_Type</name>
+        <label>Memo Type?</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Short_Term_Extension</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Memo_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Short Term Extension</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Approval_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Under Review</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Short_Term_Extension_Approval</targetReference>
+            </connector>
+            <label>Is Short Term Extension</label>
+        </rules>
+    </decisions>
+    <description>Short Term Extension fires an approval process. This is a Create only flow to auto submit the approval process</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>NullDate</name>
+        <dataType>Date</dataType>
+        <expression>DATEVALUE(&quot;&quot;)</expression>
+    </formulas>
+    <interviewLabel>nCino Baseline - Record Trigger: Short Term Extension Memo After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>nCino Baseline - Record Trigger: Short Term Extension Memo After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Loan</name>
+        <label>Get Loan</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Change_Memo</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.LLC_BI__Loan__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>LLC_BI__Loan__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the Loan Officer Field on Memo based off value on Loan Loan Officer value. Needed for Entry Criteria for the STE Approval Process</description>
+        <name>Update_Change_Memo</name>
+        <label>Update Change Memo</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Memo_Type</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>cm_Loan_Officer__c</field>
+            <value>
+                <elementReference>Get_Loan.LLC_BI__Loan_Officer__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Loan</targetReference>
+        </connector>
+        <filterFormula>AND({!$Permission.LLC_BI__Exclude_Flow} = FALSE,
+{!$Record.LLC_BI__Loan__r.LLC_BI__Product_Reference__r.LLC_BI__Product_Type__r.LLC_BI__Product_Line__r.Name} = &apos;Commercial&apos;)</filterFormula>
+        <object>LLC_BI__Credit_Memo_Modifcation__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

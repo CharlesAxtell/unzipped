@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <assignments>
+        <name>Update_Stage_to_Qualification1</name>
+        <label>Update Stage to Qualification</label>
+        <locationX>468</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.StageName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Qualification</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loan_is_Converted</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>nCino&apos;s general purpose Record-Trigger flows are designed to bucket interactions into distinct pillars. 
+
+1. On Create. These actions occur at the time the record is created. 
+2. Progression (if applicable). These actions occur when a core process on the record progresses forward or backward. These should be picklists (Example: Loan Stage). 
+3. Adhoc. All other actions which occur when distinct criteria are met.
+
+A &quot;skip&quot; function is build into start conditions. This flow will not execute when the &quot;Exclude Flow&quot; permission set is assigned to the running user.</description>
+        <name>Determine_Path</name>
+        <label>Determine Path</label>
+        <locationX>325</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Update_Stage_to_Qualification</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Adhoc</defaultConnectorLabel>
+        <rules>
+            <name>On_Create</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Is_New</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Opportunity_On_Create</targetReference>
+            </connector>
+            <label>On Create</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Loan_Assistant_Added</name>
+        <label>Loan Assistant Added?</label>
+        <locationX>446</locationX>
+        <locationY>1355</locationY>
+        <defaultConnector>
+            <targetReference>Update_Opportunity_On_Edit</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Loan_Assistant_Added</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.cm_Loan_Assistant__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Loan_Assistant_LTM</targetReference>
+            </connector>
+            <label>Yes, Loan Assistant Added</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Loan_is_Converted</name>
+        <label>Loan is Converted?</label>
+        <locationX>600</locationX>
+        <locationY>947</locationY>
+        <defaultConnector>
+            <targetReference>Update_Opportunity_On_Edit</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Loan_is_Converted</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Loan__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Loan__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.cm_Loan_Assistant__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.cm_Loan_Officer__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loan_Officer_Added</targetReference>
+            </connector>
+            <label>Yes - Loan is Converted</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Loan_Officer_Added</name>
+        <label>Loan Officer Added?</label>
+        <locationX>446</locationX>
+        <locationY>1055</locationY>
+        <defaultConnector>
+            <targetReference>Loan_Assistant_Added</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Loan_Officer_Added</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.cm_Loan_Officer__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Loan_Officer_LTM</targetReference>
+            </connector>
+            <label>Yes, Loan Officer Added</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Update_Stage_to_Qualification</name>
+        <label>Update Stage to Qualification</label>
+        <locationX>600</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Loan_is_Converted</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Update_Stage_to_Qualification</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.cm_Conversion_Complete__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.cm_Conversion_Complete__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Stage_to_Qualification1</targetReference>
+            </connector>
+            <label>Yes - Update Stage to Qualification</label>
+        </rules>
+    </decisions>
+    <description>Enforces Opportunity naming convention and Stage=Prospecting on Create. Updates Loan with Opportunity LTM&apos;s and Opportunity Stage to Qualification on Conversion</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Defaults The Opportunity Name</description>
+        <name>Default_Opportunity_Name</name>
+        <dataType>String</dataType>
+        <expression>IF(LEN($Record.Account.Name) &gt; 120,
+LEFT($Record.Account.Name, 89),
+$Record.Account.Name
+) &amp; &apos; - &apos; &amp; &apos;$&apos; &amp;
+IF(ISBLANK($Record.Amount),
+&apos;0&apos;,
+IF(
+$Record.Amount &gt;= 1000000,
+TEXT(FLOOR($Record.Amount / 1000000)) &amp; &apos;,&apos;,
+&apos;&apos;) &amp;
+IF(
+$Record.Amount &gt;= 1000,
+RIGHT(TEXT(FLOOR($Record.Amount / 1000)), 3) &amp; &apos;,&apos;,
+&apos;&apos;) &amp;
+RIGHT(TEXT(FLOOR($Record.Amount)), 3) &amp; &apos;.&apos; &amp;
+IF(
+MOD($Record.Amount, 1) * 100 &lt; 10,
+&apos;0&apos; &amp; TEXT(ROUND(MOD($Record.Amount, 1), 2) * 100),
+TEXT(MIN(ROUND(MOD($Record.Amount, 1), 2) * 100, 99))
+)) &amp; &apos; - &apos; &amp; TEXT(MONTH(DATEVALUE($Record.CreatedDate))) &amp; &apos;/&apos; &amp; TEXT(DAY(DATEVALUE($Record.CreatedDate))) &amp; &apos;/&apos; &amp; TEXT(YEAR(DATEVALUE($Record.CreatedDate)))</expression>
+    </formulas>
+    <formulas>
+        <description>Reusable variable. Drives &quot;On Create&quot; pillar.</description>
+        <name>Is_New</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>nCino - Record Trigger: Opportunity After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>nCino Commercial - Record Trigger: Opportunity After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Loan_Assistant_LTM</name>
+        <label>Create Loan Assistant LTM</label>
+        <locationX>314</locationX>
+        <locationY>1463</locationY>
+        <connector>
+            <targetReference>Update_Opportunity_On_Edit</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>LLC_BI__Assigned_Role__c</field>
+            <value>
+                <elementReference>Get_Loan_Assistant_Role.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LLC_BI__Loan__c</field>
+            <value>
+                <elementReference>$Record.LLC_BI__Loan__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LLC_BI__User__c</field>
+            <value>
+                <elementReference>$Record.cm_Loan_Assistant__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>LLC_BI__LoanTeam__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Loan_Officer_LTM</name>
+        <label>Create Loan Officer LTM</label>
+        <locationX>314</locationX>
+        <locationY>1163</locationY>
+        <connector>
+            <targetReference>Loan_Assistant_Added</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>LLC_BI__Assigned_Role__c</field>
+            <value>
+                <elementReference>Get_Loan_Officer_Role.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LLC_BI__Loan__c</field>
+            <value>
+                <elementReference>$Record.LLC_BI__Loan__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LLC_BI__User__c</field>
+            <value>
+                <elementReference>$Record.cm_Loan_Officer__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>LLC_BI__LoanTeam__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Loan_Assistant_Role</name>
+        <label>Get Loan Assistant Role</label>
+        <locationX>325</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Determine_Path</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Loan Assistant</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>LLC_BI__Role__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Loan_Officer_Role</name>
+        <label>Get Loan Officer Role</label>
+        <locationX>325</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Loan_Assistant_Role</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Loan Officer</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>LLC_BI__Role__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>A DML element to update the triggering Opportunity.
+On Creation stage will be Prospecting
+Enforces an Opportunity naming convention.</description>
+        <name>Update_Opportunity_On_Create</name>
+        <label>Update Opportunity On Create</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>Default_Opportunity_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <stringValue>Prospecting</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>A DML element to update the triggering Opportunity.
+Enforces an Opportunity naming convention. Added for the Commercial Accelerate project.</description>
+        <name>Update_Opportunity_On_Edit</name>
+        <label>Update Opportunity On Edit</label>
+        <locationX>600</locationX>
+        <locationY>1739</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>Default_Opportunity_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>199</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Loan_Officer_Role</targetReference>
+        </connector>
+        <filterFormula>{!$Permission.LLC_BI__Exclude_Flow} = FALSE</filterFormula>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>LTMCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>LLC_BI__LoanTeam__c</objectType>
+    </variables>
+</Flow>

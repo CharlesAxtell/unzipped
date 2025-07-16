@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <assignments>
+        <name>Contingent_Amount_Null</name>
+        <label>Contingent Amount = Null</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.LLC_BI__Contingent_Amount__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Borrower_Type_Household</name>
+        <label>Borrower Type = Household</label>
+        <locationX>182</locationX>
+        <locationY>287</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Set_Contingent_Amount_to_Null</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Borrower_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Borrower Household</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Borrower_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Guarantor Household</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Contingent_Amount_Null</targetReference>
+            </connector>
+            <label>Set Contingent Amount to Null</label>
+        </rules>
+    </decisions>
+    <description>If the borrower type is of guarantor household or borrower household, then the contingent amount will be set to null.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Reusable variable. Drives &quot;On Create&quot; pillar.</description>
+        <name>forB_Is_New</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>nCino Baseline - Record Trigger: Entity Involvement Before Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>nCino Baseline - Record Trigger: Entity Involvement Before Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Borrower_Type_Household</targetReference>
+        </connector>
+        <filterFormula>{!$Permission.LLC_BI__Exclude_Flow} = FALSE</filterFormula>
+        <object>LLC_BI__Legal_Entities__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

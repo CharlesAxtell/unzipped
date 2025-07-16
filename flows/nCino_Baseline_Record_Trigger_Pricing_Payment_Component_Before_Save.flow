@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <decisions>
+        <name>Determine_Path</name>
+        <label>Determine Path</label>
+        <locationX>182</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Update_Pricing_Payment_Component_on_Edit</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Adhoc</defaultConnectorLabel>
+        <rules>
+            <name>On_Create</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>forB_Is_New</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Pricing_Payment_Component_on_Create</targetReference>
+            </connector>
+            <label>On Create</label>
+        </rules>
+    </decisions>
+    <description>Updates the Pricing Payment Component to reference the related loan. If no loan is found (Pricing Payment Components being generated via Offers Generation) record will still be created. (lookup could be for credit memo)</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>forB_Is_New</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>nCino Baseline - Record Trigger: Pricing Payment Component Before Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>nCino Baseline - Record Trigger: Pricing Payment Component Before Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Loan</name>
+        <label>Get Loan</label>
+        <locationX>182</locationX>
+        <locationY>287</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Determine_Path</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.LLC_BI__Pricing_Stream__r.LLC_BI__Loan__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>LLC_BI__Loan__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the unmanaged Loan Lookup Field on Pricing Payment Component. This allows for quicker access to the Loan record</description>
+        <name>Update_Pricing_Payment_Component_on_Create</name>
+        <label>Update Pricing Payment Component on Create</label>
+        <locationX>50</locationX>
+        <locationY>503</locationY>
+        <inputAssignments>
+            <field>cm_Loan__c</field>
+            <value>
+                <elementReference>Get_Loan.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updates the unmanaged Loan Lookup Field on Pricing Payment Component. This allows for quicker access to the Loan record</description>
+        <name>Update_Pricing_Payment_Component_on_Edit</name>
+        <label>Update Pricing Payment Component on Edit</label>
+        <locationX>314</locationX>
+        <locationY>503</locationY>
+        <inputAssignments>
+            <field>cm_Loan__c</field>
+            <value>
+                <elementReference>Get_Loan.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Loan</targetReference>
+        </connector>
+        <filterFormula>{!$Permission.LLC_BI__Exclude_Flow} = FALSE</filterFormula>
+        <object>LLC_BI__Pricing_Payment_Component__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

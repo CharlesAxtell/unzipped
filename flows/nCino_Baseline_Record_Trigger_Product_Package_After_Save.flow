@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <decisions>
+        <name>Update_Product_Package_Name</name>
+        <label>Update Product Package Name</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Update_Product_Package_Name</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>forB_ISNEW</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Product_Package</targetReference>
+            </connector>
+            <label>Yes - Update Product Package Name</label>
+        </rules>
+    </decisions>
+    <description>Updates the Product Package Name with a default naming convention. (This is not a Before Save due to Created Date not being registered in Before Save Flows)</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>forB_ISNEW</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>forT_Default_PP_Name</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.LLC_BI__Account__r.Name} &amp; &apos; - &apos; &amp; TEXT(MONTH(DATEVALUE({!$Record.CreatedDate}))) &amp; &apos;/&apos; &amp; TEXT(DAY(DATEVALUE({!$Record.CreatedDate}))) &amp; &apos;/&apos; &amp; TEXT(YEAR(DATEVALUE({!$Record.CreatedDate}))) &amp; &apos; - PP&apos;</expression>
+    </formulas>
+    <interviewLabel>nCino Baseline - Record Trigger: Product Package After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>nCino Baseline - Record Trigger: Product Package After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Product_Package</name>
+        <label>Update Product Package</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>forT_Default_PP_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Product_Package_Name</targetReference>
+        </connector>
+        <filterFormula>{!$Permission.LLC_BI__Exclude_Trigger} =  FALSE</filterFormula>
+        <object>LLC_BI__Product_Package__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

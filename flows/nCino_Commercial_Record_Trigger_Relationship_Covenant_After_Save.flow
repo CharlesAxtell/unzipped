@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <assignments>
+        <name>Update_Covenant_Mgmt_Record</name>
+        <label>Update Covenant Mgmt Record</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Covenant_Mgmt.Relationship__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.LLC_BI__Account__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Determine_Path</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Account_and_Covenant_Lookup_fields_NOT_Blank</name>
+        <label>Account and Covenant Lookup fields NOT Blank</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Determine_Path</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Account_and_Covenant_Lookup_fields_NOT_Blank</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Account__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Covenant2__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Covenant_Mgmt_Record</targetReference>
+            </connector>
+            <label>Yes - Account and Covenant Lookup fields NOT Blank</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Determine_Path</name>
+        <label>Determine Path</label>
+        <locationX>182</locationX>
+        <locationY>731</locationY>
+        <defaultConnector>
+            <targetReference>Update_Covenant_Mgmt_on_Edit</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Adhoc</defaultConnectorLabel>
+        <rules>
+            <name>On_Create</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Is_New</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Covenant_Mgmt_on_Create</targetReference>
+            </connector>
+            <label>On Create</label>
+        </rules>
+    </decisions>
+    <description>Relationship lookup field on Covenant Mgmt records.
+Used for reporting on covenants</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>Is_New</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>nCino Commercial - Record Trigger: Relationship Covenant After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>nCino Commercial - Record Trigger: Relationship Covenant After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Covenant_Mgmt</name>
+        <label>Get Covenant Mgmt</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Account_and_Covenant_Lookup_fields_NOT_Blank</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.LLC_BI__Covenant2__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>LLC_BI__Covenant2__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Covenant_Mgmt_on_Create</name>
+        <label>Update Covenant Mgmt on Create</label>
+        <locationX>50</locationX>
+        <locationY>839</locationY>
+        <inputReference>Get_Covenant_Mgmt</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Covenant_Mgmt_on_Edit</name>
+        <label>Update Covenant Mgmt on Edit</label>
+        <locationX>314</locationX>
+        <locationY>839</locationY>
+        <inputReference>Get_Covenant_Mgmt</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Covenant_Mgmt</targetReference>
+        </connector>
+        <filterFormula>{!$Permission.LLC_BI__Exclude_Flow} = FALSE</filterFormula>
+        <object>LLC_BI__Account_Covenant__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

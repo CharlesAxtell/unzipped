@@ -1,0 +1,1058 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <assignments>
+        <name>Clear_Out_HMDA_Record_Type</name>
+        <label>Clear Out HMDA Record Type</label>
+        <locationX>50</locationX>
+        <locationY>1271</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__HMDA_Record_Type__c</assignToReference>
+            <operator>Assign</operator>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_Reg_O_Reportable</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Account_Employee_to_False</name>
+        <label>Set Account Employee to False</label>
+        <locationX>50</locationX>
+        <locationY>4055</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Primary_Relationship.LLC_BI__Employee_Relationship__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_Reg_W_Reportable</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Account_Employee_to_TRUE</name>
+        <label>Set Account Employee to TRUE</label>
+        <locationX>50</locationX>
+        <locationY>3755</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Primary_Relationship.LLC_BI__Employee_Relationship__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Uncheck_Account_Employee_Box</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Account_Reg_O_to_FALSE</name>
+        <label>Set Account Reg O to FALSE</label>
+        <locationX>50</locationX>
+        <locationY>2663</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Primary_Relationship.LLC_BI__Reg_O_Relationship__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_Employee_Loan</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Account_Reg_O_to_TRUE</name>
+        <label>Set Account Reg O to TRUE</label>
+        <locationX>50</locationX>
+        <locationY>2363</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Primary_Relationship.LLC_BI__Reg_O_Relationship__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Uncheck_Account_Reg_O_Box</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets value to HMDA Record Type on Loan, so the Compliance Routes render correctly</description>
+        <name>Set_HMDA_Record_Type</name>
+        <label>Set HMDA Record Type</label>
+        <locationX>50</locationX>
+        <locationY>863</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__HMDA_Record_Type__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>HMDA-Effective-2018</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Uncheck_HMDA_Reportable_Box</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Unchecks the HMDA reportable checkbox on the related loan</description>
+        <name>Set_HMDA_Reportable_to_FALSE</name>
+        <label>Set HMDA Reportable to FALSE</label>
+        <locationX>50</locationX>
+        <locationY>1163</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__HMDA_Reportable__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Clear_Out_HMDA_Record_Type</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Checks the HMDA reportable checkbox on the related loan</description>
+        <name>Set_HMDA_Reportable_to_TRUE</name>
+        <label>Set HMDA Reportable to TRUE</label>
+        <locationX>50</locationX>
+        <locationY>755</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__HMDA_Reportable__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Set_HMDA_Record_Type</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Loan_CRA_to_FALSE</name>
+        <label>Set Loan CRA to FALSE</label>
+        <locationX>50</locationX>
+        <locationY>6431</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__CRA_Reportable__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Loan_Record</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Loan_CRA_to_TRUE</name>
+        <label>Set Loan CRA to TRUE</label>
+        <locationX>50</locationX>
+        <locationY>6131</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__CRA_Reportable__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Uncheck_Loan_CRA_Box</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Loan_Employee_to_False</name>
+        <label>Set Loan Employee to False</label>
+        <locationX>50</locationX>
+        <locationY>3455</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__Employee_Loan__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_Account_Employee_Box</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Loan_Employee_to_TRUE</name>
+        <label>Set Loan Employee to TRUE</label>
+        <locationX>50</locationX>
+        <locationY>3155</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__Employee_Loan__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Uncheck_Loan_Employee_Box</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Loan_HVCRE_to_FALSE</name>
+        <label>Set Loan HVCRE to FALSE</label>
+        <locationX>50</locationX>
+        <locationY>5639</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.HVCRE_Reportable__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_CRA_Reportable</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Loan_HVCRE_to_TRUE</name>
+        <label>Set Loan HVCRE to TRUE</label>
+        <locationX>50</locationX>
+        <locationY>5339</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.HVCRE_Reportable__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Uncheck_Loan_HVCRE_Box</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Loan_Reg_O_to_False</name>
+        <label>Set Loan Reg O to False</label>
+        <locationX>50</locationX>
+        <locationY>2063</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__Reg_O_Loan__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_Account_Reg_O_Box</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Loan_Reg_O_to_TRUE</name>
+        <label>Set Loan Reg O to TRUE</label>
+        <locationX>50</locationX>
+        <locationY>1763</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.LLC_BI__Reg_O_Loan__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Uncheck_Loan_Reg_O_Box</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Loan_Reg_W_to_FALSE</name>
+        <label>Set Loan Reg W to FALSE</label>
+        <locationX>50</locationX>
+        <locationY>4847</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.Reg_W_Reportable__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_HVCRE_Reportable</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Set_Loan_Reg_W_to_TRUE</name>
+        <label>Set Loan Reg W to TRUE</label>
+        <locationX>50</locationX>
+        <locationY>4547</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Loan.Reg_W_Reportable__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Uncheck_Loan_Reg_W_Box</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Determines when the Employee checkbox on Account should be checked to True</description>
+        <name>Check_Account_Employee_Box</name>
+        <label>Check Account Employee Box</label>
+        <locationX>182</locationX>
+        <locationY>3647</locationY>
+        <defaultConnector>
+            <targetReference>Uncheck_Account_Employee_Box</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Check_Account_Employee_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes - By selecting this option, this record will be marked as an Employee Loan</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Account_Employee_to_TRUE</targetReference>
+            </connector>
+            <label>Yes - Check Account Employee Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the Reg O checkbox on Account should be checked to True</description>
+        <name>Check_Account_Reg_O_Box</name>
+        <label>Check Account Reg O Box</label>
+        <locationX>182</locationX>
+        <locationY>2255</locationY>
+        <defaultConnector>
+            <targetReference>Uncheck_Account_Reg_O_Box</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Check_Account_Reg_O_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes - By selecting this option, the loan will be marked Reg O Reportable.</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Loan__r.LLC_BI__Account__r.LLC_BI__Reg_O_Relationship__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Account_Reg_O_to_TRUE</targetReference>
+            </connector>
+            <label>Yes - Check Account Reg O Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the HMDA checkbox should be checked to True</description>
+        <name>Check_HMDA_Reportable_Box</name>
+        <label>Check HMDA Reportable Box</label>
+        <locationX>182</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Uncheck_HMDA_Reportable_Box</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Check_HMDA_Reportable_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes - By selecting this option, this record will be marked HMDA Reportable</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Loan.LLC_BI__HMDA_Reportable__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_HMDA_Reportable_to_TRUE</targetReference>
+            </connector>
+            <label>Yes - Check HMDA Reportable Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the CRA checkbox on Loan should be checked to True</description>
+        <name>Check_Loan_CRA_Box</name>
+        <label>Check Loan CRA Box?</label>
+        <locationX>182</locationX>
+        <locationY>6023</locationY>
+        <defaultConnector>
+            <targetReference>Uncheck_Loan_CRA_Box</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Check_Loan_CRA_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes - By selecting this option, the record will be marked CRA Reportable.</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Loan_CRA_to_TRUE</targetReference>
+            </connector>
+            <label>Yes - Check Loan CRA Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the Employee checkbox on Loan should be checked to True</description>
+        <name>Check_Loan_Employee_Box</name>
+        <label>Check Loan Employee Box</label>
+        <locationX>182</locationX>
+        <locationY>3047</locationY>
+        <defaultConnector>
+            <targetReference>Uncheck_Loan_Employee_Box</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Check_Loan_Employee_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes - By selecting this option, this record will be marked as an Employee Loan</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Loan_Employee_to_TRUE</targetReference>
+            </connector>
+            <label>Yes - Check Loan Employee Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the HVCRE checkbox on Loan should be checked to True</description>
+        <name>Check_Loan_HVCRE_Box</name>
+        <label>Check Loan HVCRE Box?</label>
+        <locationX>182</locationX>
+        <locationY>5231</locationY>
+        <defaultConnector>
+            <targetReference>Uncheck_Loan_HVCRE_Box</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Check_Loan_HVCRE_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes, the loan is HVCRE reportable.</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Loan_HVCRE_to_TRUE</targetReference>
+            </connector>
+            <label>Yes - Check Loan HVCRE Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the Reg O checkbox on Loan should be checked to True</description>
+        <name>Check_Loan_Reg_O_Box</name>
+        <label>Check Loan Reg O Box</label>
+        <locationX>182</locationX>
+        <locationY>1655</locationY>
+        <defaultConnector>
+            <targetReference>Uncheck_Loan_Reg_O_Box</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Check_Loan_Reg_O_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes - By selecting this option, the loan will be marked Reg O Reportable.</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Loan_Reg_O_to_TRUE</targetReference>
+            </connector>
+            <label>Yes - Check Loan Reg O Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the Reg W checkbox on Loan should be checked to True</description>
+        <name>Check_Loan_Reg_W_Box</name>
+        <label>Check Loan Reg W Box?</label>
+        <locationX>182</locationX>
+        <locationY>4439</locationY>
+        <defaultConnector>
+            <targetReference>Uncheck_Loan_Reg_W_Box</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Check_Loan_Reg_W_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes - By selecting this option, this record will be marked Reg W Reportable</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Loan_Reg_W_to_TRUE</targetReference>
+            </connector>
+            <label>Yes - Check Loan Reg W Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Performs logic to check/uncheck the CRA checkbox on the Loan when the Questionnaire is filled out</description>
+        <name>Is_CRA_Reportable</name>
+        <label>Is CRA Reportable?</label>
+        <locationX>336</locationX>
+        <locationY>5915</locationY>
+        <defaultConnector>
+            <targetReference>Update_Loan_Record</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_CRA_Reportable</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Question__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>I certify that this loan is CRA reportable?</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Question__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>I certify this loan is not CRA reportable?</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Is_Archived__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Loan_CRA_Box</targetReference>
+            </connector>
+            <label>Yes - CRA Reportable</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Performs logic to check/uncheck the Employee checkbox on the Loan when the Questionnaire is filled out</description>
+        <name>Is_Employee_Loan</name>
+        <label>Is Employee Loan?</label>
+        <locationX>336</locationX>
+        <locationY>2939</locationY>
+        <defaultConnector>
+            <targetReference>Is_Reg_W_Reportable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_is_Employee_Loan</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Question__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>If any borrower, co-borrower, or guarantor of this loan is an employee of the bank or any affiliates, I certify I have indicated this is an &quot;Employee Loan&quot;.</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Is_Archived__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Loan_Employee_Box</targetReference>
+            </connector>
+            <label>Yes - is Employee Loan</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Performs logic to check/uncheck the HMDA reportable checkbox on the Loan when the Questionnaire is filled out</description>
+        <name>Is_HMDA_Reportable</name>
+        <label>Is HMDA Reportable?</label>
+        <locationX>336</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Is_Reg_O_Reportable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Is_HMDA_Reportable</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Question__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>I certify that this loan IS NOT HMDA Reportable.</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Question__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>I certify that this loan has been marked HMDA Reportable and the applicable loan details have been populated.</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Is_Archived__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_HMDA_Reportable_Box</targetReference>
+            </connector>
+            <label>Yes - Is HMDA Reportable</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Performs logic to check/uncheck the HVCRE checkbox on the Loan when the Questionnaire is filled out</description>
+        <name>Is_HVCRE_Reportable</name>
+        <label>Is HVCRE Reportable?</label>
+        <locationX>336</locationX>
+        <locationY>5123</locationY>
+        <defaultConnector>
+            <targetReference>Is_CRA_Reportable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Is_HCRE_Reportable</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Question__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>I certify this transaction has been indicated as a HVCRE reportable transaction?</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Question__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>I certify this transaction is NOT HVCRE reportable</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Is_Archived__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Loan_HVCRE_Box</targetReference>
+            </connector>
+            <label>Yes - Is HCRE Reportable</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Performs logic to check/uncheck the Reg O checkbox on the Loan when the Questionnaire is filled out</description>
+        <name>Is_Reg_O_Reportable</name>
+        <label>Is Reg O Reportable?</label>
+        <locationX>336</locationX>
+        <locationY>1547</locationY>
+        <defaultConnector>
+            <targetReference>Is_Employee_Loan</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_is_Reg_O_Reportable</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Question__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>I certify this loan has been marked as &quot;Reg O Reportable&quot;.</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Is_Archived__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Loan_Reg_O_Box</targetReference>
+            </connector>
+            <label>Yes - is Reg O Reportable</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Performs logic to check/uncheck the Reg W checkbox on the Loan when the Questionnaire is filled out</description>
+        <name>Is_Reg_W_Reportable</name>
+        <label>Is Reg W Reportable?</label>
+        <locationX>336</locationX>
+        <locationY>4331</locationY>
+        <defaultConnector>
+            <targetReference>Is_HVCRE_Reportable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Is_Reg_W_Reportable</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Question__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>I certify that Reg W applies to this loan.</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Is_Archived__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_Loan_Reg_W_Box</targetReference>
+            </connector>
+            <label>Yes - Is Reg W Reportable</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the Employee checkbox on Account should be checked to False</description>
+        <name>Uncheck_Account_Employee_Box</name>
+        <label>Uncheck Account Employee Box</label>
+        <locationX>182</locationX>
+        <locationY>3947</locationY>
+        <defaultConnector>
+            <targetReference>Is_Reg_W_Reportable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Uncheck_Account_Employee_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes - By selecting this option, this record will be marked as an Employee Loan</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Account_Employee_to_False</targetReference>
+            </connector>
+            <label>Yes - Uncheck Account Employee Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the Reg O checkbox on Account should be checked to False</description>
+        <name>Uncheck_Account_Reg_O_Box</name>
+        <label>Uncheck Account Reg O Box</label>
+        <locationX>182</locationX>
+        <locationY>2555</locationY>
+        <defaultConnector>
+            <targetReference>Is_Employee_Loan</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Uncheck_Account_Reg_O_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LLC_BI__Loan__r.LLC_BI__Account__r.LLC_BI__Reg_O_Relationship__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Account_Reg_O_to_FALSE</targetReference>
+            </connector>
+            <label>Yes - Uncheck Account Reg O Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the HMDA checkbox should be checked to False</description>
+        <name>Uncheck_HMDA_Reportable_Box</name>
+        <label>Uncheck HMDA Reportable Box</label>
+        <locationX>182</locationX>
+        <locationY>1055</locationY>
+        <defaultConnector>
+            <targetReference>Is_Reg_O_Reportable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Uncheck_HDMA_Reportable</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes, this loan IS NOT HMDA Reportable</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Loan.LLC_BI__HMDA_Reportable__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_HMDA_Reportable_to_FALSE</targetReference>
+            </connector>
+            <label>Yes - Uncheck HDMA Reportable</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the CRA checkbox on Loan should be checked to False</description>
+        <name>Uncheck_Loan_CRA_Box</name>
+        <label>Uncheck Loan CRA Box?</label>
+        <locationX>182</locationX>
+        <locationY>6323</locationY>
+        <defaultConnector>
+            <targetReference>Update_Loan_Record</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Uncheck_Loan_CRA_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes - By selecting this option, the record will be marked CRA Reportable.</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Loan_CRA_to_FALSE</targetReference>
+            </connector>
+            <label>Yes - Uncheck Loan CRA Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the Employee checkbox on Loan should be checked to False</description>
+        <name>Uncheck_Loan_Employee_Box</name>
+        <label>Uncheck Loan Employee Box</label>
+        <locationX>182</locationX>
+        <locationY>3347</locationY>
+        <defaultConnector>
+            <targetReference>Check_Account_Employee_Box</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Uncheck_Loan_Employee_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes - By selecting this option, this record will be marked as an Employee Loan</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Loan_Employee_to_False</targetReference>
+            </connector>
+            <label>Yes - Uncheck Loan Employee Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the HVCRE checkbox on Loan should be checked to False</description>
+        <name>Uncheck_Loan_HVCRE_Box</name>
+        <label>Uncheck Loan HVCRE Box?</label>
+        <locationX>182</locationX>
+        <locationY>5531</locationY>
+        <defaultConnector>
+            <targetReference>Is_CRA_Reportable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Uncheck_Loan_HVCRE_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes, this Loan is not HVCRE reportable.</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Loan_HVCRE_to_FALSE</targetReference>
+            </connector>
+            <label>Yes - Uncheck Loan HVCRE Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the Reg O checkbox on Loan should be checked to True</description>
+        <name>Uncheck_Loan_Reg_O_Box</name>
+        <label>Uncheck Loan Reg O Box</label>
+        <locationX>182</locationX>
+        <locationY>1955</locationY>
+        <defaultConnector>
+            <targetReference>Check_Account_Reg_O_Box</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Uncheck_Loan_Reg_O_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Loan_Reg_O_to_False</targetReference>
+            </connector>
+            <label>Yes - Uncheck Loan Reg O Box</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines when the Reg W checkbox on Loan should be checked to False</description>
+        <name>Uncheck_Loan_Reg_W_Box</name>
+        <label>Uncheck Loan Reg W Box?</label>
+        <locationX>182</locationX>
+        <locationY>4739</locationY>
+        <defaultConnector>
+            <targetReference>Is_HVCRE_Reportable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Uncheck_Loan_Reg_W_Box</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.nFORCE__Option__r.nFORCE__Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>No</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Loan_Reg_W_to_FALSE</targetReference>
+            </connector>
+            <label>Yes - Uncheck Loan Reg W Box</label>
+        </rules>
+    </decisions>
+    <description>Checks and Unchecks boxes on Loan/Account based on questionnaire results. HMDA Reportable, Reg O, Employee, Reg W, HVCRE, CRA</description>
+    <environments>Default</environments>
+    <interviewLabel>nCino Baseline - Record Trigger: Answer After Save {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>nCino Baseline - Record Trigger: Answer After Save</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get the Primary Loan related to the Questionnaire</description>
+        <name>Get_Loan</name>
+        <label>Get Loan</label>
+        <locationX>336</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Primary_Relationship</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.LLC_BI__Loan__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>LLC_BI__Loan__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get the Primary (Borrower) Relationship related to the Loan on the Questionnaire</description>
+        <name>Get_Primary_Relationship</name>
+        <label>Get Primary Relationship</label>
+        <locationX>336</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_HMDA_Reportable</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Loan.LLC_BI__Account__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Loan_Record</name>
+        <label>Update Loan Record</label>
+        <locationX>336</locationX>
+        <locationY>6707</locationY>
+        <connector>
+            <targetReference>Update_Primary_Relationship</targetReference>
+        </connector>
+        <inputReference>Get_Loan</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Primary_Relationship</name>
+        <label>Update Primary Relationship</label>
+        <locationX>336</locationX>
+        <locationY>6815</locationY>
+        <inputReference>Get_Primary_Relationship</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>210</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Loan</targetReference>
+        </connector>
+        <filterFormula>{!$Permission.LLC_BI__Exclude_Flow} = FALSE</filterFormula>
+        <object>nFORCE__Answer__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
