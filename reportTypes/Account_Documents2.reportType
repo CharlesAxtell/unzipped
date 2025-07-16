@@ -18,6 +18,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>CreatedDate</field>
+            <table>LLC_BI__AccountDocument__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>CreatedBy</field>
             <table>LLC_BI__AccountDocument__c</table>
         </columns>
